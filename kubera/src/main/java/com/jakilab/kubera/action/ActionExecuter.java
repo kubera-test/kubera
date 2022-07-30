@@ -26,6 +26,7 @@ public class ActionExecuter {
         actionClassDefinitions.put("gotoURL", GoToURL.class);
         actionClassDefinitions.put("inputString", InputString.class);
         actionClassDefinitions.put("inputKey", InputKey.class);
+        actionClassDefinitions.put("checkValue", CheckValue.class);
     }
 
     public void execute(String actionJson) {

@@ -30,9 +30,13 @@ public class GoogleTest
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
         kubera.action("{ \"actionName\": \"checkValue\", "
-                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"checkValue\": \"selenide\" } }");
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"checkValue\": \"\" } }");
+//        kubera.action("{ \"actionName\": \"inputString\", "
+//                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"inputString\": \"selenide\" } }");
         kubera.action("{ \"actionName\": \"inputString\", "
-                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"inputString\": \"selenide\" } }");
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"inputString\": \"selenide\" } }");
+        kubera.action("{ \"actionName\": \"checkValue\", "
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"checkValue\": \"selenide\" } }");
         // Arrange
 //        kubera.action("https://google.com/ncr");
 //        // Act
