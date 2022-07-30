@@ -18,13 +18,19 @@ public class GoogleTest
     @Test
     public void searchForSelenide() {
         Kubera kubera = new Kubera();
+//        kubera.action("{ \"actionName\": \"gotoURL\", "
+//                + "\"actionJson\": { \"url\": \"https://google.com/ncr\" } }");
+//
+//        kubera.action("{ \"actionName\": \"inputString\", "
+//                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='q']\", \"inputString\": \"selenide\" } }");
+//        kubera.action("{ \"actionName\": \"inputKey\", "
+//                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='q']\", \"inputKey\": \"Enter\" } }");
+
         kubera.action("{ \"actionName\": \"gotoURL\", "
-                + "\"actionJson\": { \"url\": \"https://google.com/ncr\" } }");
+                + "\"actionJson\": { \"url\": \"https://hotel.testplanisphere.dev/ja/plans.html\" } }");
 
         kubera.action("{ \"actionName\": \"inputString\", "
                 + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='q']\", \"inputString\": \"selenide\" } }");
-        kubera.action("{ \"actionName\": \"inputKey\", "
-                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='q']\", \"inputKey\": \"Enter\" } }");
         // Arrange
 //        kubera.action("https://google.com/ncr");
 //        // Act
