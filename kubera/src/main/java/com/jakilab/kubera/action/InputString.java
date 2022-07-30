@@ -1,6 +1,7 @@
 package com.jakilab.kubera.action;
 
 import com.codeborne.selenide.Selenide;
+import com.jakilab.kubera.locate.LocateGenerator;
 
 public class InputString implements Action {
 
@@ -34,6 +35,6 @@ public class InputString implements Action {
 
     @Override
     public void execute() {
-        Selenide.$(searchExpression).setValue(inputString);
+        Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).setValue(inputString);
     }
 }
