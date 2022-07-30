@@ -27,10 +27,12 @@ public class GoogleTest
 //                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='q']\", \"inputKey\": \"Enter\" } }");
 
         kubera.action("{ \"actionName\": \"gotoURL\", "
-                + "\"actionJson\": { \"url\": \"https://hotel.testplanisphere.dev/ja/plans.html\" } }");
+                + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
+        kubera.action("{ \"actionName\": \"checkValue\", "
+                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"checkValue\": \"selenide\" } }");
         kubera.action("{ \"actionName\": \"inputString\", "
-                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='q']\", \"inputString\": \"selenide\" } }");
+                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"inputString\": \"selenide\" } }");
         // Arrange
 //        kubera.action("https://google.com/ncr");
 //        // Act
