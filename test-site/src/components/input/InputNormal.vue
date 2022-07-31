@@ -6,7 +6,7 @@
           <label>Type:Text</label>
         </b-col>
         <b-col sm="9">
-          <b-form-input id="idInputText" name="nameInputText" type="text"></b-form-input>
+          <b-form-input id="idInputText" name="nameInputText" type="text" class="classInputText"></b-form-input>
         </b-col>
       </b-row>
     </b-card>
