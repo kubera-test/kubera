@@ -1,14 +1,14 @@
-package com.jakilab.kubera.action;
+package com.jakilab.kubera.action.input;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import com.jakilab.kubera.action.Action;
 import com.jakilab.kubera.locate.LocateGenerator;
 
-public class CheckValue implements Action {
+public class InputText implements Action {
 
     private String locator;
     private String searchExpression;
-    private String checkValue;
+    private String inputString;
 
     public String getLocator() {
         return locator;
@@ -26,16 +26,16 @@ public class CheckValue implements Action {
         this.searchExpression = searchExpression;
     }
 
-    public String getCheckValue() {
-        return checkValue;
+    public String getInputString() {
+        return inputString;
     }
 
-    public void setCheckValue(String checkValue) {
-        this.checkValue = checkValue;
+    public void setInputString(String inputString) {
+        this.inputString = inputString;
     }
 
     @Override
     public void execute() {
-        Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).shouldHave(Condition.value(checkValue));
+        Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).setValue(inputString);
     }
 }
