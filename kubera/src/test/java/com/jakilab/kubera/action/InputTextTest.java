@@ -19,15 +19,15 @@ public class InputTextTest {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\", \"checkValue\": \"\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\", \"inputString\": \"idを入力\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\", \"checkValue\": \"idを入力\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\", \"inputString\": \"\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\", \"checkValue\": \"\" } }");
 
 //        kubera.action("{ \"actionName\": \"gotoURL\", "
@@ -58,15 +58,15 @@ public class InputTextTest {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"checkValue\": \"\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"inputString\": \"nameを入力\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"checkValue\": \"nameを入力\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"inputString\": \"\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"checkValue\": \"\" } }");
     }
 
@@ -76,15 +76,15 @@ public class InputTextTest {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\", \"checkValue\": \"\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\", \"inputString\": \"class nameを入力\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\", \"checkValue\": \"class nameを入力\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\", \"inputString\": \"\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\", \"checkValue\": \"\" } }");
     }
 
@@ -94,15 +94,15 @@ public class InputTextTest {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"checkValue\": \"\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"inputString\": \"CSS Selectorを入力\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"checkValue\": \"CSS Selectorを入力\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"inputString\": \"\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"checkValue\": \"\" } }");
     }
 
@@ -112,15 +112,15 @@ public class InputTextTest {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\", \"checkValue\": \"\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\", \"inputString\": \"xPathを入力\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\", \"checkValue\": \"xPathを入力\" } }");
         kubera.action("{ \"actionName\": \"inputText\", "
                 + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\", \"inputString\": \"\" } }");
-        kubera.action("{ \"actionName\": \"checkText\", "
+        kubera.action("{ \"actionName\": \"assertText\", "
                 + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\", \"checkValue\": \"\" } }");
     }
 }

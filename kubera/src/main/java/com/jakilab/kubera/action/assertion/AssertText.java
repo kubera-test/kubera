@@ -1,11 +1,11 @@
-package com.jakilab.kubera.action.check;
+package com.jakilab.kubera.action.assertion;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.jakilab.kubera.action.Action;
 import com.jakilab.kubera.locate.LocateGenerator;
 
-public class CheckText implements Action {
+public class AssertText implements Action {
 
     private String locator;
     private String searchExpression;

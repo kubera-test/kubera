@@ -19,15 +19,15 @@ public class SelectRadioTest {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"checkValue\": \"\" } }");
         kubera.action("{ \"actionName\": \"selectRadio\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"selectValue\": \"A\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"checkValue\": \"A\" } }");
         kubera.action("{ \"actionName\": \"selectRadio\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"selectValue\": \"B\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"checkValue\": \"B\" } }");
 
     }
@@ -37,27 +37,27 @@ public class SelectRadioTest {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioA\", \"checked\": \"False\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioB\", \"checked\": \"False\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioC\", \"checked\": \"False\" } }");
         kubera.action("{ \"actionName\": \"selectRadio\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"selectValue\": \"A\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioA\", \"checked\": \"True\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioB\", \"checked\": \"False\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioC\", \"checked\": \"False\" } }");
         kubera.action("{ \"actionName\": \"selectRadio\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"selectValue\": \"B\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioA\", \"checked\": \"False\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioB\", \"checked\": \"True\" } }");
-        kubera.action("{ \"actionName\": \"checkRadio\", "
+        kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioC\", \"checked\": \"False\" } }");
 
     }

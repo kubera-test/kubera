@@ -4,8 +4,10 @@ package com.jakilab.kubera.action;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jakilab.kubera.action.check.CheckRadio;
-import com.jakilab.kubera.action.check.CheckText;
+import com.jakilab.kubera.action.assertion.AssertCheckbox;
+import com.jakilab.kubera.action.assertion.AssertRadio;
+import com.jakilab.kubera.action.assertion.AssertText;
+import com.jakilab.kubera.action.input.InputCheckbox;
 import com.jakilab.kubera.action.input.InputText;
 import com.jakilab.kubera.action.input.SelectRadio;
 
@@ -27,9 +29,11 @@ public class ActionExecuter {
         actionClassDefinitions.put("gotoURL", GoToURL.class);
         actionClassDefinitions.put("inputText", InputText.class);
         actionClassDefinitions.put("inputKey", InputKey.class);
-        actionClassDefinitions.put("checkText", CheckText.class);
+        actionClassDefinitions.put("assertText", AssertText.class);
         actionClassDefinitions.put("selectRadio", SelectRadio.class);
-        actionClassDefinitions.put("checkRadio", CheckRadio.class);
+        actionClassDefinitions.put("assertRadio", AssertRadio.class);
+        actionClassDefinitions.put("assertCheckbox", AssertCheckbox.class);
+        actionClassDefinitions.put("inputCheckbox", InputCheckbox.class);
     }
 
     public void execute(String actionJson) {
