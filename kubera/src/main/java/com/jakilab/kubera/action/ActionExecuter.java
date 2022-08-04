@@ -4,14 +4,9 @@ package com.jakilab.kubera.action;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jakilab.kubera.action.assertion.AssertCheckbox;
-import com.jakilab.kubera.action.assertion.AssertRadio;
-import com.jakilab.kubera.action.assertion.AssertSelect;
-import com.jakilab.kubera.action.assertion.AssertText;
-import com.jakilab.kubera.action.input.InputCheckbox;
-import com.jakilab.kubera.action.input.InputSelect;
-import com.jakilab.kubera.action.input.InputText;
-import com.jakilab.kubera.action.input.SelectRadio;
+import com.jakilab.kubera.action.assertion.*;
+import com.jakilab.kubera.action.clear.ClearSelectMulti;
+import com.jakilab.kubera.action.input.*;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,6 +33,9 @@ public class ActionExecuter {
         actionClassDefinitions.put("assertCheckbox", AssertCheckbox.class);
         actionClassDefinitions.put("inputSelect", InputSelect.class);
         actionClassDefinitions.put("assertSelect", AssertSelect.class);
+        actionClassDefinitions.put("inputSelectMulti", InputSelectMulti.class);
+        actionClassDefinitions.put("assertSelectMulti", AssertSelectMulti.class);
+        actionClassDefinitions.put("clearSelectMulti", ClearSelectMulti.class);
     }
 
     public void execute(String actionJson) {
