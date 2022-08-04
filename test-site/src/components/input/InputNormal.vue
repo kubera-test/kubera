@@ -31,6 +31,34 @@
           </div>
         </b-col>
       </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label>Type:Select</label>
+        </b-col>
+        <b-col sm="9">
+          <b-form-select id="idInputSelect" name="nameInputSelect" class="classInputSelect">
+            <b-form-select-option value="A" id="idInputSelectA" name="nameInputSelectA">Select A</b-form-select-option>
+            <b-form-select-option value="B" id="idInputSelectB" name="nameInputSelectB">Select B</b-form-select-option>
+            <b-form-select-option value="C" id="idInputSelectC" name="nameInputSelectC">Select C</b-form-select-option>
+          </b-form-select>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label>Type:Select(Multiple)</label>
+        </b-col>
+        <b-col sm="9">
+          <b-form-select id="idInputSelectMulti" name="nameInputSelectMulti" class="classInputSelectMulti" multiple>
+            <b-form-select-option value="A" id="idInputSelectMultiA" name="nameInputSelectMultiA">Select A</b-form-select-option>
+            <b-form-select-option value="B" id="idInputSelectMultiB" name="nameInputSelectMultiB">Select B</b-form-select-option>
+            <b-form-select-option value="C" id="idInputSelectMultiC" name="nameInputSelectMultiC">Select C</b-form-select-option>
+            <b-form-select-option value="D" id="idInputSelectMultiD" name="nameInputSelectMultiD">Select D</b-form-select-option>
+            <b-form-select-option value="E" id="idInputSelectMultiE" name="nameInputSelectMultiE">Select E</b-form-select-option>
+            <b-form-select-option value="F" id="idInputSelectMultiF" name="nameInputSelectMultiF">Select F</b-form-select-option>
+            <b-form-select-option value="G" id="idInputSelectMultiG" name="nameInputSelectMultiG">Select G</b-form-select-option>
+          </b-form-select>
+        </b-col>
+      </b-row>
     </b-card>
   </div>
 </template>
