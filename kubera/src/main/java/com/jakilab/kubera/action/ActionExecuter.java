@@ -6,8 +6,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jakilab.kubera.action.assertion.AssertCheckbox;
 import com.jakilab.kubera.action.assertion.AssertRadio;
+import com.jakilab.kubera.action.assertion.AssertSelect;
 import com.jakilab.kubera.action.assertion.AssertText;
 import com.jakilab.kubera.action.input.InputCheckbox;
+import com.jakilab.kubera.action.input.InputSelect;
 import com.jakilab.kubera.action.input.InputText;
 import com.jakilab.kubera.action.input.SelectRadio;
 
@@ -32,8 +34,10 @@ public class ActionExecuter {
         actionClassDefinitions.put("assertText", AssertText.class);
         actionClassDefinitions.put("selectRadio", SelectRadio.class);
         actionClassDefinitions.put("assertRadio", AssertRadio.class);
-        actionClassDefinitions.put("assertCheckbox", AssertCheckbox.class);
         actionClassDefinitions.put("inputCheckbox", InputCheckbox.class);
+        actionClassDefinitions.put("assertCheckbox", AssertCheckbox.class);
+        actionClassDefinitions.put("inputSelect", InputSelect.class);
+        actionClassDefinitions.put("assertSelect", AssertSelect.class);
     }
 
     public void execute(String actionJson) {
