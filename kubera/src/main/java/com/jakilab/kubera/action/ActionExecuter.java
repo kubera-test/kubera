@@ -26,7 +26,7 @@ public class ActionExecuter {
         actionClassDefinitions.put("gotoURL", GoToURL.class);
         actionClassDefinitions.put("inputText", InputText.class);
         actionClassDefinitions.put("inputKey", InputKey.class);
-        actionClassDefinitions.put("assertText", AssertText.class);
+        actionClassDefinitions.put("assertTextbox", AssertTextbox.class);
         actionClassDefinitions.put("selectRadio", SelectRadio.class);
         actionClassDefinitions.put("assertRadio", AssertRadio.class);
         actionClassDefinitions.put("inputCheckbox", InputCheckbox.class);

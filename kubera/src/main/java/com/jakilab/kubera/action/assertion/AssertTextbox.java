@@ -5,7 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.jakilab.kubera.action.Action;
 import com.jakilab.kubera.locate.LocateGenerator;
 
-public class AssertText implements Action {
+public class AssertTextbox implements Action {
 
     private String locator;
     private String searchExpression;
