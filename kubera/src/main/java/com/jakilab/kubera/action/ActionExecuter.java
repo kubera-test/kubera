@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jakilab.kubera.action.assertion.*;
 import com.jakilab.kubera.action.clear.ClearSelectMulti;
+import com.jakilab.kubera.action.click.ClickButton;
 import com.jakilab.kubera.action.input.*;
 
 import java.util.Map;
@@ -36,6 +37,8 @@ public class ActionExecuter {
         actionClassDefinitions.put("inputSelectMulti", InputSelectMulti.class);
         actionClassDefinitions.put("assertSelectMulti", AssertSelectMulti.class);
         actionClassDefinitions.put("clearSelectMulti", ClearSelectMulti.class);
+        actionClassDefinitions.put("assertText", AssertText.class);
+        actionClassDefinitions.put("clickButton", ClickButton.class);
     }
 
     public void execute(String actionJson) {
