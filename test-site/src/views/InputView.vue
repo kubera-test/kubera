@@ -1,17 +1,19 @@
 <template>
   <div class="home">
     <InputNormal />
+    <ButtonNormal />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import InputNormal from '@/components/input/InputNormal.vue'
+import ButtonNormal from '@/components/input/ButtonNormal.vue'
 
 export default {
   name: 'InputView',
   components: {
-    InputNormal
+    InputNormal,
+    ButtonNormal
   }
 }
 </script>
