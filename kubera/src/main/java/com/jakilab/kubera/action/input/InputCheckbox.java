@@ -38,4 +38,9 @@ public class InputCheckbox implements Action {
     public void execute() {
         Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).setSelected(checked);
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

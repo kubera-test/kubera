@@ -43,4 +43,9 @@ public class AssertText implements Action {
             Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).shouldBe(Condition.empty);
         }
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

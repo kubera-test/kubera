@@ -51,6 +51,11 @@ public class AssertSelectMulti implements Action {
         }
     }
 
+    @Override
+    public void validate() {
+
+    }
+
     private String[] elementCollectionToStrings(ElementsCollection elementsCollection) {
         String[] elementValues = new String[elementsCollection.size()];
         int elementIndex = 0;

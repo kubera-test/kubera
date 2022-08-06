@@ -39,4 +39,9 @@ public class AssertSelect implements Action {
     public void execute() {
         Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).shouldHave(Condition.value(checkValue));
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

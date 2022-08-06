@@ -52,4 +52,9 @@ public class AssertTextbox implements Action {
             Selenide.$$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).get(index - 1).shouldHave(Condition.value(checkValue));
         }
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

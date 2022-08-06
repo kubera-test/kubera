@@ -6,4 +6,8 @@ import com.jakilab.kubera.locate.LocateGenerator;
 
 public class ClickButton extends ClickObject implements Action {
 
+    @Override
+    public void validate() {
+
+    }
 }

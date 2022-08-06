@@ -51,4 +51,9 @@ public class InputTextbox implements Action {
             Selenide.$$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).get(index - 1).setValue(inputString);
         }
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

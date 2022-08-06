@@ -32,4 +32,9 @@ public class ClearSelectMulti implements Action {
             element.setSelected(false);
         }
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

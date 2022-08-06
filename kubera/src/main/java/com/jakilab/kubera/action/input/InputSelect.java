@@ -38,4 +38,9 @@ public class InputSelect implements Action {
     public void execute() {
         Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).setValue(selectValue);
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

@@ -38,4 +38,9 @@ public class InputSelectMulti implements Action {
     public void execute() {
         Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).selectOptionByValue(selectValues);
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

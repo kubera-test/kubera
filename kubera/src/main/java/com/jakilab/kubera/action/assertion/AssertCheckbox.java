@@ -13,4 +13,9 @@ public class AssertCheckbox extends AssertCheckTypeAction implements Action {
     public void execute() {
         isChecked();
     }
+
+    @Override
+    public void validate() {
+
+    }
 }
