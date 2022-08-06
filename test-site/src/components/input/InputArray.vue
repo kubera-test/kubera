@@ -38,11 +38,11 @@
                     <label class="form-check-label" for="idInputCheckArrayA">A</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayA" name="nameInputCheckArrayB" value="B">
+                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayB" name="nameInputCheckArrayB" value="B">
                     <label class="form-check-label" for="idInputCheckArrayB">B</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayA" name="nameInputCheckArrayC" value="C">
+                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayC" name="nameInputCheckArrayC" value="C">
                     <label class="form-check-label" for="idInputCheckArrayC">C</label>
                   </div>
                 </b-td>
@@ -89,11 +89,11 @@
                     <label class="form-check-label" for="idInputCheckArrayA">A</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayA" name="nameInputCheckArrayB" value="B">
+                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayB" name="nameInputCheckArrayB" value="B">
                     <label class="form-check-label" for="idInputCheckArrayB">B</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayA" name="nameInputCheckArrayC" value="C">
+                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayC" name="nameInputCheckArrayC" value="C">
                     <label class="form-check-label" for="idInputCheckArrayC">C</label>
                   </div>
                 </b-td>
@@ -140,11 +140,11 @@
                     <label class="form-check-label" for="idInputCheckArrayA">A</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayA" name="nameInputCheckArrayB" value="B">
+                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayB" name="nameInputCheckArrayB" value="B">
                     <label class="form-check-label" for="idInputCheckArrayB">B</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayA" name="nameInputCheckArrayC" value="C">
+                    <input class="classInputCheckArray form-check-input" type="checkbox" id="idInputCheckArrayC" name="nameInputCheckArrayC" value="C">
                     <label class="form-check-label" for="idInputCheckArrayC">C</label>
                   </div>
                 </b-td>
