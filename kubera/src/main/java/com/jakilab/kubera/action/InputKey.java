@@ -36,4 +36,9 @@ public class InputKey implements Action {
     public void execute() {
         Selenide.$(searchExpression).pressEnter();
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

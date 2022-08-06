@@ -18,4 +18,9 @@ public class GoToURL implements Action {
     public void execute() {
         Selenide.open(url);
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

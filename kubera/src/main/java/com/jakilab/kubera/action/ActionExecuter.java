@@ -57,6 +57,7 @@ public class ActionExecuter {
             throw new RuntimeException(e);
         }
 
+        action.validate();
         action.execute();
     }
 }
