@@ -33,9 +33,6 @@ public class AssertRadio extends AssertCheckTypeAction implements Action {
 
     @Override
     public void validate() {
-        if (getIndex() != 0) {
-            fail("ラジオボタンには配列要素番号を指定できません。");
-        }
     }
 
     private void checkedValue() {

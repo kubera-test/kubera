@@ -12,6 +12,7 @@ public class SelectRadio implements Action {
     private String searchExpression;
     private String selectValue;
     private int index = 0;
+    private Boolean selected;
 
     public String getLocator() {
         return locator;
@@ -45,19 +46,28 @@ public class SelectRadio implements Action {
         this.index = index;
     }
 
+    public Boolean getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Boolean selected) {
+        this.selected = selected;
+    }
+
     @Override
     public void execute() {
-        if (index == 0) {
+        if (selected == null) {
             Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).selectRadio(selectValue);
         } else {
-            Selenide.$$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).get(index - 1).selectRadio(selectValue);
+            if (index == 0) {
+                Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).setSelected(selected);
+            } else {
+                Selenide.$$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).get(index - 1).setSelected(selected);
+            }
         }
     }
 
     @Override
     public void validate() {
-        if (index != 0) {
-            fail("ラジオボタンには配列要素番号を指定できません。");
-        }
     }
 }
