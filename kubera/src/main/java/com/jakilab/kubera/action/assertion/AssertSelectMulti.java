@@ -16,6 +16,7 @@ public class AssertSelectMulti implements Action {
     private String locator;
     private String searchExpression;
     private String[] checkValues;
+    private int index = 0;
 
     public String getLocator() {
         return locator;
@@ -41,9 +42,17 @@ public class AssertSelectMulti implements Action {
         this.checkValues = checkValues;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
     @Override
     public void execute() {
-        String[] elementValues = elementCollectionToStrings(Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).getSelectedOptions());
+        String[] elementValues = elementCollectionToStrings(getSelectedOptions());
         Arrays.sort(checkValues);
         Arrays.sort(elementValues);
         if (!Arrays.equals(checkValues, elementValues, (o1, o2) -> o1.compareTo(o2))) {
@@ -54,6 +63,14 @@ public class AssertSelectMulti implements Action {
     @Override
     public void validate() {
 
+    }
+
+    private ElementsCollection getSelectedOptions() {
+        if (index == 0) {
+            return Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).getSelectedOptions();
+        } else {
+            return Selenide.$$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).get(index - 1).getSelectedOptions();
+        }
     }
 
     private String[] elementCollectionToStrings(ElementsCollection elementsCollection) {

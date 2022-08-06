@@ -9,6 +9,7 @@ public class InputSelectMulti implements Action {
     private String locator;
     private String searchExpression;
     private String[] selectValues;
+    private int index = 0;
 
     public String getLocator() {
         return locator;
@@ -34,9 +35,21 @@ public class InputSelectMulti implements Action {
         this.selectValues = selectValues;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
     @Override
     public void execute() {
-        Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).selectOptionByValue(selectValues);
+        if (index == 0) {
+            Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).selectOptionByValue(selectValues);
+        } else {
+            Selenide.$$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).get(index - 1).selectOptionByValue(selectValues);
+        }
     }
 
     @Override
