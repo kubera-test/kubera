@@ -55,4 +55,8 @@ export default {
 div.align-left {
   text-align: left;
 }
+img.classButtonImage {
+  width: 80px;
+  height: 40px;
+}
 </style>
