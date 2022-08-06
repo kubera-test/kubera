@@ -4,7 +4,7 @@ import com.codeborne.selenide.Selenide;
 import com.jakilab.kubera.action.Action;
 import com.jakilab.kubera.locate.LocateGenerator;
 
-public class InputText implements Action {
+public class InputTextbox implements Action {
 
     private String locator;
     private String searchExpression;
