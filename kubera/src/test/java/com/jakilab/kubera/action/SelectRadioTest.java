@@ -2,8 +2,10 @@ package com.jakilab.kubera.action;
 
 import com.codeborne.selenide.Selenide;
 import com.jakilab.kubera.Kubera;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.opentest4j.AssertionFailedError;
 
 public class SelectRadioTest {
 
@@ -62,5 +64,27 @@ public class SelectRadioTest {
         kubera.action("{ \"actionName\": \"assertRadio\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputRadioC\", \"checked\": \"False\" } }");
 
+    }
+
+    @Test
+    public void 対象エレメントが期待値と一致しない場合Failが発生すること() {
+        kubera.action("{ \"actionName\": \"gotoURL\", "
+                + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
+
+        kubera.action("{ \"actionName\": \"selectRadio\", "
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"selectValue\": \"A\" } }");
+        Assertions.assertThrows(AssertionFailedError.class,
+                () -> kubera.action("{ \"actionName\": \"assertRadio\", "
+                        + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"checkValue\": \"B\" } }"));
+    }
+
+    @Test
+    public void 対象エレメントが未選択な状態で期待値と一致しない場合Failが発生すること() {
+        kubera.action("{ \"actionName\": \"gotoURL\", "
+                + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
+
+        Assertions.assertThrows(AssertionFailedError.class,
+                () -> kubera.action("{ \"actionName\": \"assertRadio\", "
+                        + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputRadio\", \"checkValue\": \"A\" } }"));
     }
 }

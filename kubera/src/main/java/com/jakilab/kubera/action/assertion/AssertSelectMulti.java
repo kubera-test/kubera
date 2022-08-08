@@ -4,7 +4,9 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.jakilab.kubera.action.Action;
+import com.jakilab.kubera.exception.TestFail;
 import com.jakilab.kubera.locate.LocateGenerator;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -55,9 +57,8 @@ public class AssertSelectMulti implements Action {
         String[] elementValues = elementCollectionToStrings(getSelectedOptions());
         Arrays.sort(checkValues);
         Arrays.sort(elementValues);
-        if (!Arrays.equals(checkValues, elementValues, (o1, o2) -> o1.compareTo(o2))) {
-            fail(String.format("一致しません。\n期待値:[%s]実際の値:[%s]", Arrays.toString(checkValues), Arrays.toString(elementValues)));
-        }
+        Assertions.assertArrayEquals(checkValues, elementValues,
+                TestFail.generateFailMessage("対象エレメントの値が一致しません。", Arrays.toString(checkValues), Arrays.toString(elementValues)));
     }
 
     @Override

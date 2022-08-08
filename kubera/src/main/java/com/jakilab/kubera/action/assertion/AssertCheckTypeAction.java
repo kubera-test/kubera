@@ -2,6 +2,7 @@ package com.jakilab.kubera.action.assertion;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import com.jakilab.kubera.exception.TestFail;
 import com.jakilab.kubera.locate.LocateGenerator;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -48,11 +49,11 @@ public class AssertCheckTypeAction {
     protected void isChecked() {
         if (getElementChecked()) {
             if (!checked) {
-                fail("対象のエレメントはチェックされています。\n期待値[未チェック]");
+                TestFail.fail("対象エレメントのチェック状態が一致しません。", "未チェック", "チェック");
             }
         } else {
             if (checked) {
-                fail("対象のエレメントは未チェックです。\n期待値[チェック]");
+                TestFail.fail("対象エレメントのチェック状態が一致しません。", "チェック", "未チェック");
             }
         }
     }

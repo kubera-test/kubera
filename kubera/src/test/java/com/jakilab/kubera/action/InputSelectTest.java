@@ -1,8 +1,10 @@
 package com.jakilab.kubera.action;
 
 import com.jakilab.kubera.Kubera;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.opentest4j.AssertionFailedError;
 
 public class InputSelectTest {
 
@@ -49,6 +51,21 @@ public class InputSelectTest {
         kubera.action("{ \"actionName\": \"inputSelectMulti\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelectMulti\", \"selectValues\": [\"A\", \"B\"] } }");
         kubera.action("{ \"actionName\": \"assertSelectMulti\", "
-                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelectMulti\", \"checkValues\": [\"A\", \"B\", \"G\"] } }");
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelectMulti\", \"checkValues\": [\"G\", \"B\", \"A\"] } }");
+    }
+
+    @Test
+    public void 対象エレメントと期待値が異なる場合Failが発生すること() {
+        kubera.action("{ \"actionName\": \"gotoURL\", "
+                + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
+
+        kubera.action("{ \"actionName\": \"assertSelectMulti\", "
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelectMulti\", \"checkValues\": [] } }");
+
+        kubera.action("{ \"actionName\": \"inputSelectMulti\", "
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelectMulti\", \"selectValues\": [\"G\", \"B\"] } }");
+        Assertions.assertThrows(AssertionFailedError.class,
+                () -> kubera.action("{ \"actionName\": \"assertSelectMulti\", "
+                        + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelectMulti\", \"checkValues\": [\"A\", \"B\"] } }"));
     }
 }

@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.jakilab.kubera.action.Action;
+import com.jakilab.kubera.exception.TestFail;
 import com.jakilab.kubera.locate.LocateGenerator;
 
 import java.util.Objects;
@@ -39,14 +40,14 @@ public class AssertRadio extends AssertCheckTypeAction implements Action {
         for (SelenideElement element : Selenide.$$(LocateGenerator.getInstance().getLocator(locator, searchExpression))) {
             if (element.has(Condition.checked)) {
                 if (!Objects.requireNonNull(element.getValue()).equals(checkValue)) {
-                    fail(String.format("対象のエレメントは[%s]が選択されています。\n期待値[%s]", element.getValue(), checkValue));
+                    TestFail.fail("対象エレメントの値が一致しません。", checkValue, element.getValue());
                 } else {
                     return;
                 }
             }
         }
         if (!checkValue.isEmpty()) {
-            fail(String.format("対象のエレメントは何も選択されていませんでした。\n期待値[%s]", checkValue));
+            TestFail.fail("対象エレメントの値が一致しません。", checkValue, "何も選択されていない");
         }
     }
 
