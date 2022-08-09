@@ -1,0 +1,10 @@
+[
+  {
+    "TestCaseName": "GoogleでKuberaを検索した時に当ツールのGitHubページが一つ目に表示されること",
+    "TestCases": [
+      {"actionName" :  "gotoURL", "actionJson":  {"url" :  "https://google.com/ncr" }},
+      {"actionName" :  "inputTextbox", "actionJson":  {"locator" :  "css_selector", "searchExpression": "input[name='q']", "inputString": "github kubera" }},
+      {"actionName" :  "inputKey", "actionJson":  {"locator" :  "css_selector", "searchExpression": "input[name='q']", "inputKey": "Enter" }}
+    ]
+  }
+]
