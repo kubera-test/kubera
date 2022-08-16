@@ -1,11 +1,7 @@
 package com.jakilab.kubera.action.assertion;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.jakilab.kubera.action.Action;
-import com.jakilab.kubera.locate.LocateGenerator;
-
-import static org.junit.jupiter.api.Assertions.fail;
+import com.jakilab.kubera.testcasereader.excel.ExcelActionData;
 
 public class AssertCheckbox extends AssertCheckTypeAction implements Action {
 
@@ -17,5 +13,10 @@ public class AssertCheckbox extends AssertCheckTypeAction implements Action {
     @Override
     public void validate() {
 
+    }
+
+    @Override
+    public void setFromExcel(ExcelActionData excelActionData) {
+        setAssertCheckTypeActionDataFromExcel(excelActionData);
     }
 }

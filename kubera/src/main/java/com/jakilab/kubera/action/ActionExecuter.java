@@ -14,10 +14,10 @@ import com.jakilab.kubera.action.input.*;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ActionExecuter {
+public class ActionExecuter extends ActionManager {
     private static ActionExecuter instance;
 
-    private final Map<String, Class<? extends Action>> actionClassDefinitions = new ConcurrentHashMap<>();
+//    private final Map<String, Class<? extends Action>> actionClassDefinitions = new ConcurrentHashMap<>();
     public static synchronized ActionExecuter getInstance() {
         if (instance == null) {
             instance = new ActionExecuter();
@@ -25,25 +25,25 @@ public class ActionExecuter {
         return instance;
     }
 
-    protected ActionExecuter() {
-        actionClassDefinitions.put("gotoURL", GoToURL.class);
-        actionClassDefinitions.put("inputTextbox", InputTextbox.class);
-        actionClassDefinitions.put("inputKey", InputKey.class);
-        actionClassDefinitions.put("assertTextbox", AssertTextbox.class);
-        actionClassDefinitions.put("selectRadio", SelectRadio.class);
-        actionClassDefinitions.put("assertRadio", AssertRadio.class);
-        actionClassDefinitions.put("inputCheckbox", InputCheckbox.class);
-        actionClassDefinitions.put("assertCheckbox", AssertCheckbox.class);
-        actionClassDefinitions.put("inputSelect", InputSelect.class);
-        actionClassDefinitions.put("assertSelect", AssertSelect.class);
-        actionClassDefinitions.put("inputSelectMulti", InputSelectMulti.class);
-        actionClassDefinitions.put("assertSelectMulti", AssertSelectMulti.class);
-        actionClassDefinitions.put("clearSelectMulti", ClearSelectMulti.class);
-        actionClassDefinitions.put("assertText", AssertText.class);
-        actionClassDefinitions.put("clickButton", ClickButton.class);
-        actionClassDefinitions.put("clickLink", ClickLink.class);
-        actionClassDefinitions.put("clickImage", ClickImage.class);
-    }
+//    protected ActionExecuter() {
+//        actionClassDefinitions.put("gotoURL", GoToURL.class);
+//        actionClassDefinitions.put("inputTextbox", InputTextbox.class);
+//        actionClassDefinitions.put("inputKey", InputKey.class);
+//        actionClassDefinitions.put("assertTextbox", AssertTextbox.class);
+//        actionClassDefinitions.put("selectRadio", SelectRadio.class);
+//        actionClassDefinitions.put("assertRadio", AssertRadio.class);
+//        actionClassDefinitions.put("inputCheckbox", InputCheckbox.class);
+//        actionClassDefinitions.put("assertCheckbox", AssertCheckbox.class);
+//        actionClassDefinitions.put("inputSelect", InputSelect.class);
+//        actionClassDefinitions.put("assertSelect", AssertSelect.class);
+//        actionClassDefinitions.put("inputSelectMulti", InputSelectMulti.class);
+//        actionClassDefinitions.put("assertSelectMulti", AssertSelectMulti.class);
+//        actionClassDefinitions.put("clearSelectMulti", ClearSelectMulti.class);
+//        actionClassDefinitions.put("assertText", AssertText.class);
+//        actionClassDefinitions.put("clickButton", ClickButton.class);
+//        actionClassDefinitions.put("clickLink", ClickLink.class);
+//        actionClassDefinitions.put("clickImage", ClickImage.class);
+//    }
 
     public void execute(String actionJson) {
 

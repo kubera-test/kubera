@@ -1,10 +1,14 @@
 package com.jakilab.kubera.action;
 
 import com.codeborne.selenide.Selenide;
+import com.jakilab.kubera.testcasereader.excel.ExcelActionData;
 
-public class GoToURL implements Action {
+public class GoToURL extends TestCaseAction implements Action {
 
     private String url;
+
+    public GoToURL() {
+    }
 
     public String getUrl() {
         return url;
@@ -23,4 +27,11 @@ public class GoToURL implements Action {
     public void validate() {
 
     }
+
+    @Override
+    public void setFromExcel(ExcelActionData excelActionData) {
+        setTestCaseActionDataFromExcel(excelActionData);
+        this.setUrl(excelActionData.getTestCase());
+    }
+
 }

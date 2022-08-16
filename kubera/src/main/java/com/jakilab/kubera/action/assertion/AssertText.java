@@ -3,29 +3,17 @@ package com.jakilab.kubera.action.assertion;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.jakilab.kubera.action.Action;
+import com.jakilab.kubera.action.ObjectAction;
 import com.jakilab.kubera.locate.LocateGenerator;
+import com.jakilab.kubera.testcasereader.excel.ExcelActionData;
 
-public class AssertText implements Action {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-    private String locator;
-    private String searchExpression;
+public class AssertText extends ObjectAction implements Action {
+
     private String checkValue;
-
-    public String getLocator() {
-        return locator;
-    }
-
-    public void setLocator(String locator) {
-        this.locator = locator;
-    }
-
-    public String getSearchExpression() {
-        return searchExpression;
-    }
-
-    public void setSearchExpression(String searchExpression) {
-        this.searchExpression = searchExpression;
-    }
 
     public String getCheckValue() {
         return checkValue;
@@ -38,14 +26,28 @@ public class AssertText implements Action {
     @Override
     public void execute() {
         if (!checkValue.isEmpty()) {
-            Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).shouldHave(Condition.text(checkValue));
+            getSelenideElement().shouldHave(Condition.text(checkValue));
         } else {
-            Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).shouldBe(Condition.empty);
+            getSelenideElement().shouldBe(Condition.empty);
         }
     }
 
     @Override
     public void validate() {
 
+    }
+
+    @Override
+    public void setFromExcel(ExcelActionData excelActionData) {
+        setObjectActionDataFromExcel(excelActionData);
+        setCheckValue(convertEmptyString(excelActionData.getTestCase()));
+    }
+
+    private String convertEmptyString(String value) {
+        List<String> emptyString = new ArrayList<>(Arrays.asList("EMPTY", "Empty", "empty", "空"));
+        if (emptyString.contains(value)) {
+            return "";
+        }
+        return value;
     }
 }

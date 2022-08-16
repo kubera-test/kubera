@@ -4,8 +4,10 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.jakilab.kubera.action.Action;
+import com.jakilab.kubera.action.ObjectAction;
 import com.jakilab.kubera.exception.TestFail;
 import com.jakilab.kubera.locate.LocateGenerator;
+import com.jakilab.kubera.testcasereader.excel.ExcelActionData;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
@@ -13,28 +15,9 @@ import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class AssertSelectMulti implements Action {
+public class AssertSelectMulti extends ObjectAction implements Action {
 
-    private String locator;
-    private String searchExpression;
     private String[] checkValues;
-    private int index = 0;
-
-    public String getLocator() {
-        return locator;
-    }
-
-    public void setLocator(String locator) {
-        this.locator = locator;
-    }
-
-    public String getSearchExpression() {
-        return searchExpression;
-    }
-
-    public void setSearchExpression(String searchExpression) {
-        this.searchExpression = searchExpression;
-    }
 
     public String[] getCheckValues() {
         return checkValues;
@@ -44,17 +27,9 @@ public class AssertSelectMulti implements Action {
         this.checkValues = checkValues;
     }
 
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
     @Override
     public void execute() {
-        String[] elementValues = elementCollectionToStrings(getSelectedOptions());
+        String[] elementValues = elementCollectionToStrings(getSelenideElement().getSelectedOptions());
         Arrays.sort(checkValues);
         Arrays.sort(elementValues);
         Assertions.assertArrayEquals(checkValues, elementValues,
@@ -66,12 +41,10 @@ public class AssertSelectMulti implements Action {
 
     }
 
-    private ElementsCollection getSelectedOptions() {
-        if (index == 0) {
-            return Selenide.$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).getSelectedOptions();
-        } else {
-            return Selenide.$$(LocateGenerator.getInstance().getLocator(locator, searchExpression)).get(index - 1).getSelectedOptions();
-        }
+    @Override
+    public void setFromExcel(ExcelActionData excelActionData) {
+        setObjectActionDataFromExcel(excelActionData);
+        setCheckValues(excelActionData.getTestCase().split("[\\s]*,[\\s]*"));
     }
 
     private String[] elementCollectionToStrings(ElementsCollection elementsCollection) {

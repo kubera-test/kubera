@@ -2,14 +2,13 @@ package com.jakilab.kubera;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.jakilab.kubera.action.testcasereader.JsonReader;
+import com.jakilab.kubera.testcasereader.ExcelReader;
+import com.jakilab.kubera.testcasereader.JsonReader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Stream;
 
 public class KuberaTest {
@@ -30,16 +29,19 @@ public class KuberaTest {
     }
 
     static Stream<Arguments> jsonTestcaseProvider() {
-        ArrayNode arrayNode = JsonReader.readJsonArrayFile(KuberaTest.class.getResourceAsStream("/json/ParameterizedTest.json"));
-        List<Arguments> arguments = new ArrayList<>();
-        for (JsonNode jsonNode: arrayNode) {
-            arguments.add(Arguments.arguments(jsonNode.get("TestCaseName").toPrettyString(), jsonNode.get("TestCases")));
+        return JsonReader.readJsonArrayFileToArgumentsStream(KuberaTest.class.getResourceAsStream("/json/ParameterizedTest.json"));
+    }
+
+    @ParameterizedTest(name = "{index}: {0}")
+    @MethodSource("excelTestcaseProvider")
+    public void Excelファイルを読み込んでテストを実行できる(String testCaseName, ArrayNode testCase) {
+        for (JsonNode jsonNode: testCase) {
+            kubera.action(jsonNode.toPrettyString());
         }
-        return arguments.stream();
-//        return Stream.of(
-//                Arguments.arguments("テストケース１", "値１"),
-//                Arguments.arguments("テストケース２", "値２"),
-//                Arguments.arguments("テストケース３", "値３")
-//        );
+    }
+
+    static Stream<Arguments> excelTestcaseProvider() {
+        ExcelReader excelReader = new ExcelReader(KuberaTest.class.getResourceAsStream("/excel/Excelテスト.xlsx"));
+        return excelReader.readExcelFileToArgumentsStream();
     }
 }

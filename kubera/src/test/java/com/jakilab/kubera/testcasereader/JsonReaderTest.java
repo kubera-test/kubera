@@ -1,7 +1,6 @@
 package com.jakilab.kubera.testcasereader;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.jakilab.kubera.action.testcasereader.JsonReader;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
