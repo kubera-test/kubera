@@ -6,7 +6,7 @@
           <label>Type:Button</label>
         </b-col>
         <b-col sm="9" class="align-left">
-          <b-button id="idButton" name="nameButton" class="classButton" :onclick="clickButton">Button</b-button>
+          <b-button id="idButton" name="nameButton" class="classButton" v-on:click="clickButton">Button</b-button>
           <span id="idButtonClickResult">{{ buttonClickResult }}</span>
         </b-col>
       </b-row>
@@ -23,7 +23,7 @@
           <label>Type:Image</label>
         </b-col>
         <b-col sm="9" class="align-left">
-          <b-img id="idButtonImage" name="nameButtonImage" class="classButtonImage" :src="require('@/assets/img/buttonImage.png')" :onclick="clickButtonImage"></b-img>
+          <b-img id="idButtonImage" name="nameButtonImage" class="classButtonImage" :src="require('@/assets/img/buttonImage.png')" v-on:click="clickButtonImage"></b-img>
           <span id="idButtonImageClickResult">{{ buttonImageClickResult }}</span>
         </b-col>
       </b-row>
