@@ -4,13 +4,7 @@ import com.jakilab.kubera.Kubera;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class InputTextArrayTest {
-    private Kubera kubera;
-
-    @BeforeEach
-    public void setUp() {
-        kubera = new Kubera();
-    }
+public class InputTextArrayTest extends ActionTest {
 
     @Test
     public void 配列項目のテキストボックスに対してIDとインデックスを指定して入力と検証ができること() {

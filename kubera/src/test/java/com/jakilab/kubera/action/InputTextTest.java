@@ -4,14 +4,7 @@ import com.jakilab.kubera.Kubera;
 
 import org.junit.jupiter.api.*;
 
-public class InputTextTest {
-
-    private Kubera kubera;
-
-    @BeforeEach
-    public void setUp() {
-        kubera = new Kubera();
-    }
+public class InputTextTest extends ActionTest {
 
     @Test
     public void 単一項目のテキストボックスに対してIDを指定して入力と検証ができること() {

@@ -6,13 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.opentest4j.AssertionFailedError;
 
-public class InputCheckboxTest {
-
-    private Kubera kubera;
-    @BeforeEach
-    public void setUp() {
-        kubera = new Kubera();
-    }
+public class InputCheckboxTest extends ActionTest {
 
     @Test
     public void チェックボックスに対して入力と検証ができること() {

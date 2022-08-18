@@ -4,13 +4,7 @@ import com.jakilab.kubera.Kubera;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ClickButtonTest {
-    private Kubera kubera;
-
-    @BeforeEach
-    public void setUp() {
-        kubera = new Kubera();
-    }
+public class ClickButtonTest extends ActionTest {
 
     @Test
     public void ボタンをクリックできること() {

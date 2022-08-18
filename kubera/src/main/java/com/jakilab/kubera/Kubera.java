@@ -7,4 +7,8 @@ public class Kubera {
     public void action(String actionJson) {
         ActionExecuter.getInstance().execute(actionJson);
     }
+
+    public void close() {
+        Selenide.closeWebDriver();
+    }
 }

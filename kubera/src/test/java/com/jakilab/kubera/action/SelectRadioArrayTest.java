@@ -5,13 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SelectRadioArrayTest {
-    private Kubera kubera;
-
-    @BeforeEach
-    public void setUp() {
-        kubera = new Kubera();
-    }
+public class SelectRadioArrayTest extends ActionTest {
 
     @Test
     public void ラジオボタンに対して配列要素番号を指定して入力と検証ができること() {

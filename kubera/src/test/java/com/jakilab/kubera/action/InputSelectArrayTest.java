@@ -4,13 +4,7 @@ import com.jakilab.kubera.Kubera;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class InputSelectArrayTest {
-    private Kubera kubera;
-
-    @BeforeEach
-    public void setUp() {
-        kubera = new Kubera();
-    }
+public class InputSelectArrayTest extends ActionTest {
 
     @Test
     public void 単一選択に対して親項目を指定して入力と検証ができること() {
