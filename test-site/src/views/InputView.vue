@@ -1,9 +1,11 @@
 <template>
   <div class="home">
-    <InputNormal />
-    <ButtonNormal />
-    <InputArray />
-    <ButtonArray />
+    <b-container fluid>
+      <InputNormal />
+      <ButtonNormal />
+      <InputArray />
+      <ButtonArray />
+    </b-container>
   </div>
 </template>
 
