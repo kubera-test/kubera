@@ -1,6 +1,7 @@
 <template>
   <nav>
-    <router-link to="/">Input</router-link> |
+    <router-link to="/input">Input</router-link> |
+    <router-link to="/status">Status</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>

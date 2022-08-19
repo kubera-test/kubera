@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import InputView from '../views/InputView.vue'
+import StatusView from '../views/StatusView.vue'
 
 const routes = [
   {
     path: '/input',
     name: 'input',
     component: InputView
+  },
+  {
+    path: '/status',
+    name: 'status',
+    component: StatusView
   },
   {
     path: '/about',
