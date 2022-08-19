@@ -13,7 +13,7 @@ public class TakeScreenshotTest {
     }
 
     @Test
-    public void ラジオボタンに対してNAMEを指定して入力と検証ができること() {
+    public void スクリーンショットを撮れること() {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
