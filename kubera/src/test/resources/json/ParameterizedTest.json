@@ -4,7 +4,8 @@
     "TestCases": [
       {"actionName" :  "gotoURL", "actionJson":  {"url" :  "https://google.com/ncr" }},
       {"actionName" :  "inputTextbox", "actionJson":  {"locator" :  "css_selector", "searchExpression": "input[name='q']", "inputString": "github kubera" }},
-      {"actionName" :  "inputKey", "actionJson":  {"locator" :  "css_selector", "searchExpression": "input[name='q']", "inputKey": "Enter" }}
+      {"actionName" :  "inputKey", "actionJson":  {"locator" :  "css_selector", "searchExpression": "input[name='q']", "inputKey": "Enter" }},
+      {"actionName" :  "takeScreenshot", "actionJson":  {"imageFileName" :  "C:\\tmp\\a.png" }}
     ]
   }
 ]

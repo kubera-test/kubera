@@ -6,6 +6,7 @@ import com.jakilab.kubera.action.click.ClickButton;
 import com.jakilab.kubera.action.click.ClickImage;
 import com.jakilab.kubera.action.click.ClickLink;
 import com.jakilab.kubera.action.input.*;
+import com.jakilab.kubera.action.screenshot.TakeScreenshot;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -32,5 +33,7 @@ public class ActionManager {
         actionClassDefinitions.put("clickButton", ClickButton.class);
         actionClassDefinitions.put("clickLink", ClickLink.class);
         actionClassDefinitions.put("clickImage", ClickImage.class);
+
+        actionClassDefinitions.put("takeScreenshot", TakeScreenshot.class);
     }
 }
