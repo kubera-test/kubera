@@ -28,6 +28,7 @@
               <b-tr>
                 <b-td>
                   <b-button id="idButtonArray" name="nameButtonArray" class="classButtonArray" v-on:click="clickButtonArray(1)">Button</b-button>
+                  <span id="idButtonClickResultArray">{{ buttonArrayClickResult[1] }}</span>
                 </b-td>
                 <b-td>
                   <a href="javascript:void(0);" v-on:click="clickLinkArray(1)">リンク配列</a>
