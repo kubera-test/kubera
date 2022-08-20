@@ -7,6 +7,7 @@ import com.jakilab.kubera.action.click.ClickImage;
 import com.jakilab.kubera.action.click.ClickLink;
 import com.jakilab.kubera.action.input.*;
 import com.jakilab.kubera.action.screenshot.TakeScreenshot;
+import com.jakilab.kubera.action.status.IsEnable;
 import com.jakilab.kubera.action.status.IsVisible;
 
 import java.util.Map;
@@ -37,5 +38,6 @@ public class ActionManager {
 
         actionClassDefinitions.put("takeScreenshot", TakeScreenshot.class);
         actionClassDefinitions.put("isVisible", IsVisible.class);
+        actionClassDefinitions.put("isEnable", IsEnable.class);
     }
 }
