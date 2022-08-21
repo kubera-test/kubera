@@ -28,6 +28,7 @@ public class ElementWriterFactory {
         elementClassDefinitions.put(ElementType.BUTTON, Button.class);
         elementClassDefinitions.put(ElementType.ANCHOR_LINK, AnchorLink.class);
         elementClassDefinitions.put(ElementType.IMG, Img.class);
+        elementClassDefinitions.put(ElementType.TEXTAREA, Textarea.class);
     }
 
     public ElementWriter createElementWriter(ElementType elementType) {

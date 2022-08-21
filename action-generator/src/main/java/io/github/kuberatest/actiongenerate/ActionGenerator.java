@@ -50,38 +50,10 @@ public class ActionGenerator {
     public void capture(Workbook workbook, String sheetName) {
         stdout("画面の情報を読み込んでいます。操作せずにそのままお待ちください。");
         Sheet sheet = makeExcelSheet(workbook, sheetName);
-        captureInput(sheet);
-        captureSelect(sheet);
-        captureButton(sheet);
-        captureAnchorLink(sheet);
-        captureImg(sheet);
-        stdout("画面の情報を読み込みました。");
-    }
-
-    public void captureInput(Sheet sheet) {
-        List<ElementType> types = Arrays.asList(
-                ElementType.TEXTBOX,
-                ElementType.RADIO,
-                ElementType.CHECKBOX);
-        for (ElementType type: types) {
+        for (ElementType type: ElementType.values()) {
             captureElement(sheet, type);
         }
-    }
-
-    public void captureSelect(Sheet sheet) {
-        captureElement(sheet, ElementType.SELECT);
-    }
-
-    public void captureButton(Sheet sheet) {
-        captureElement(sheet, ElementType.BUTTON);
-    }
-
-    public void captureAnchorLink(Sheet sheet) {
-        captureElement(sheet, ElementType.ANCHOR_LINK);
-    }
-
-    public void captureImg(Sheet sheet) {
-        captureElement(sheet, ElementType.IMG);
+        stdout("画面の情報を読み込みました。");
     }
 
     public void captureElement(Sheet sheet, ElementType type) {

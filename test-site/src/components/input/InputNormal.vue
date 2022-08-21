@@ -67,6 +67,14 @@
           <b-form-input class="classInputTextNoAttr"></b-form-input>
         </b-col>
       </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idTextarea">Type:Textarea</label>
+        </b-col>
+        <b-col sm="9">
+          <b-form-textarea id="idTextarea" name="nameTextarea" class="classTextarea"></b-form-textarea>
+        </b-col>
+      </b-row>
     </b-card>
   </div>
 </template>

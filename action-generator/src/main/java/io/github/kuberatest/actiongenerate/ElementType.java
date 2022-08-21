@@ -10,6 +10,7 @@ public enum ElementType {
     RADIO(new Radio()),
     CHECKBOX(new Checkbox()),
     SELECT(new Select()),
+    TEXTAREA(new Textarea()),
     BUTTON(new Button()),
     ANCHOR_LINK(new AnchorLink()),
     IMG(new Img());

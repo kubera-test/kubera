@@ -34,6 +34,9 @@ public class ActionManager {
         actionClassDefinitions.put("assertSelectMulti", AssertSelectMulti.class);
         actionClassDefinitions.put("clearSelectMulti", ClearSelectMulti.class);
         actionClassDefinitions.put("assertText", AssertText.class);
+        actionClassDefinitions.put("inputTextarea", InputTextarea.class);
+        actionClassDefinitions.put("assertTextarea", AssertTextarea.class);
+
         actionClassDefinitions.put("clickButton", ClickButton.class);
         actionClassDefinitions.put("clickLink", ClickLink.class);
         actionClassDefinitions.put("clickImage", ClickImage.class);
