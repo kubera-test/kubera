@@ -59,6 +59,14 @@
           </b-form-select>
         </b-col>
       </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label>Type:input</label>
+        </b-col>
+        <b-col sm="9">
+          <b-form-input class="classInputTextNoAttr"></b-form-input>
+        </b-col>
+      </b-row>
     </b-card>
   </div>
 </template>
