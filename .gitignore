@@ -1,5 +1,7 @@
 kubera/target/
 kubera/build/
+action-generator/target/
+action-generator/build/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
