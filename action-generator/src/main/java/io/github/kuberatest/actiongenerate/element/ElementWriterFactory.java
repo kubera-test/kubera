@@ -6,6 +6,7 @@ import io.github.kuberatest.actiongenerate.element.inputtype.Radio;
 import io.github.kuberatest.actiongenerate.element.inputtype.Textbox;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -21,14 +22,8 @@ public class ElementWriterFactory {
     }
 
     protected ElementWriterFactory() {
-        elementClassDefinitions.put(ElementType.TEXTBOX, Textbox.class);
-        elementClassDefinitions.put(ElementType.RADIO, Radio.class);
-        elementClassDefinitions.put(ElementType.CHECKBOX, Checkbox.class);
-        elementClassDefinitions.put(ElementType.SELECT, Select.class);
-        elementClassDefinitions.put(ElementType.BUTTON, Button.class);
-        elementClassDefinitions.put(ElementType.ANCHOR_LINK, AnchorLink.class);
-        elementClassDefinitions.put(ElementType.IMG, Img.class);
-        elementClassDefinitions.put(ElementType.TEXTAREA, Textarea.class);
+        Arrays.stream(ElementType.values())
+                .forEach(type -> elementClassDefinitions.put(type, type.getClassLiteral()));
     }
 
     public ElementWriter createElementWriter(ElementType elementType) {

@@ -19,7 +19,7 @@ public class AssertSelect extends ObjectAction implements Action {
 
     @Override
     public void execute() {
-        getSelenideElement().shouldHave(Condition.value(checkValue));
+        getSelenideElement().shouldHave(Condition.exactValue(checkValue));
     }
 
     @Override

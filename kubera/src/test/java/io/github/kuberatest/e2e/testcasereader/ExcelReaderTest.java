@@ -37,7 +37,7 @@ public class ExcelReaderTest {
         testMethod.setAccessible(true);
         Integer result = (Integer)testMethod.invoke(excelReader, row, 4);
 
-        assertTrue(result == 1);
+        assertEquals(1, (int) result);
     }
 
     @Test
@@ -79,11 +79,11 @@ public class ExcelReaderTest {
         testMethod.setAccessible(true);
         ExcelActionData excelActionData = (ExcelActionData)testMethod.invoke(excelReader, sheet, 4, 6);
 
-        assertTrue(excelActionData.getActionKey().equals("inputTextbox"));
-        assertTrue(excelActionData.getDescription().equals("[テキストボックス]に値を入力する"));
-        assertTrue(excelActionData.getLocator().equals("id"));
-        assertTrue(excelActionData.getSearchExpression().equals("idString"));
-        assertTrue(excelActionData.getTestCase().equals("Start"));
+        assertEquals("inputTextbox", excelActionData.getActionKey());
+        assertEquals("[テキストボックス]に値を入力する", excelActionData.getDescription());
+        assertEquals("id", excelActionData.getLocator());
+        assertEquals("idString", excelActionData.getSearchExpression());
+        assertEquals("Start", excelActionData.getTestCase());
     }
 
     @Test

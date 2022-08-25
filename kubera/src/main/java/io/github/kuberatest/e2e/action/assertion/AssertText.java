@@ -24,7 +24,7 @@ public class AssertText extends ObjectAction implements Action {
     @Override
     public void execute() {
         if (!checkValue.isEmpty()) {
-            getSelenideElement().shouldHave(Condition.text(checkValue));
+            getSelenideElement().shouldHave(Condition.exactText(checkValue));
         } else {
             getSelenideElement().shouldBe(Condition.empty);
         }

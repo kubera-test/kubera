@@ -5,8 +5,6 @@ import io.github.kuberatest.e2e.action.ObjectAction;
 import io.github.kuberatest.e2e.exception.TestFail;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
 public abstract class AssertCheckTypeAction extends ObjectAction {
 
     protected Boolean checked;

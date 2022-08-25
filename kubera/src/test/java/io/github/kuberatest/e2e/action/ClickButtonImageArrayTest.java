@@ -2,7 +2,7 @@ package io.github.kuberatest.e2e.action;
 
 import org.junit.jupiter.api.Test;
 
-public class ClickButtonImageArray extends ActionTest {
+public class ClickButtonImageArrayTest extends ActionTest {
 
     @Test
     public void ボタンをクリックできること() {

@@ -172,15 +172,6 @@ public class ExcelReader {
             throw new RuntimeException(e);
         }
 
-//        ActionBase actionBase = new ActionBase();
-//        actionBase.setActionName(actionName);
-//        actionBase.setActionJson(actionJson);
-//        try {
-//            return objectMapper.writeValueAsString(actionBase);
-//        } catch (JsonProcessingException e) {
-//            // MEMO: ほぼ発生が考えられないのでこのまま
-//            throw new RuntimeException(e);
-//        }
         StringBuilder jsonString = new StringBuilder();
         jsonString
                 .append(String.format("{\"actionName\": \"%s\",", actionName))

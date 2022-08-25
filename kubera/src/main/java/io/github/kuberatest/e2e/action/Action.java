@@ -8,5 +8,7 @@ public interface Action {
 
     void validate();
 
+    void dispDescription();
+
     void setFromExcel(ExcelActionData excelActionData);
 }

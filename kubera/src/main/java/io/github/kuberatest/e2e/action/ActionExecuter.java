@@ -27,6 +27,7 @@ public class ActionExecuter extends ActionManager {
             throw new RuntimeException(e);
         }
 
+        action.dispDescription();
         action.validate();
         action.execute();
     }

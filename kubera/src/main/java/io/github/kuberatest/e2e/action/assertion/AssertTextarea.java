@@ -23,7 +23,7 @@ public class AssertTextarea extends ObjectAction implements Action {
     @Override
     public void execute() {
         if (!checkValue.isEmpty()) {
-            getSelenideElement().shouldHave(Condition.value(checkValue));
+            getSelenideElement().shouldHave(Condition.exactValue(checkValue));
         } else {
             getSelenideElement().shouldBe(Condition.empty);
         }

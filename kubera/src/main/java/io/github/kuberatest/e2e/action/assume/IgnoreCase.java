@@ -23,6 +23,6 @@ public class IgnoreCase extends TestCaseAction implements Action {
     }
 
     public static String getKey() {
-        return "ignoreCase";
+        return "IgnoreCase";
     }
 }

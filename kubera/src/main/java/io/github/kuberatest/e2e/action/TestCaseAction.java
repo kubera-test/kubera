@@ -16,4 +16,10 @@ public abstract class TestCaseAction implements Action {
     public void setTestCaseActionDataFromExcel(ExcelActionData excelActionData) {
         setDescription(excelActionData.getDescription());
     }
+
+    public void dispDescription() {
+        if (description != null && description.length() != 0) {
+            System.out.println(description);
+        }
+    }
 }

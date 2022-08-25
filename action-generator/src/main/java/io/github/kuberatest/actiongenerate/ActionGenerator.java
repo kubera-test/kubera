@@ -57,7 +57,7 @@ public class ActionGenerator {
     }
 
     public void captureElement(Sheet sheet, ElementType type) {
-        List<WebElement> elements = webDriver.findElements(By.cssSelector(type.getElementWriter().getCssSelector()));
+        List<WebElement> elements = webDriver.findElements(By.cssSelector(type.getElementWriterInstance().getCssSelector()));
         writeElementHeader(sheet, type);
 
         Map<String, Integer> arrayObjects = findElementDuplicates(elements, type).stream().collect(Collectors.toMap(t -> t, t -> 1));
@@ -65,13 +65,13 @@ public class ActionGenerator {
             ElementWriter input = ElementWriterFactory.getInstance().createElementWriter(type)
                     .setExcelInfo(workbook, sheet, activeRow)
                     .setSeleniumInfo(element)
-                    .setObjectInfo(type.getElementWriter().getElementAttribute(element), arrayCountUp(arrayObjects, element, type));
+                    .setObjectInfo(type.getElementWriterInstance().getElementAttribute(element), arrayCountUp(arrayObjects, element, type));
             activeRow = input.writeExcel();
        }
     }
 
     public void writeElementHeader(Sheet sheet, ElementType type) {
-        activeRow = type.getElementWriter().writeElementHeader(workbook, sheet, activeRow);
+        activeRow = type.getElementWriterInstance().writeElementHeader(workbook, sheet, activeRow);
     }
 
     /**
@@ -100,7 +100,7 @@ public class ActionGenerator {
     }
 
     private String getElementSearchExpression(WebElement element, ElementType type) {
-        String[] attribute = type.getElementWriter().getElementAttribute(element);
+        String[] attribute = type.getElementWriterInstance().getElementAttribute(element);
         return attribute[0] + ":" + attribute[1];
     }
 

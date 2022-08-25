@@ -10,8 +10,6 @@ import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
 public class AssertSelectMulti extends ObjectAction implements Action {
 
     private String[] checkValues;

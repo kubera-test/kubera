@@ -6,8 +6,6 @@ import io.github.kuberatest.e2e.action.ObjectAction;
 import io.github.kuberatest.e2e.locate.LocateGenerator;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
 public class SelectRadio extends ObjectAction implements Action {
 
     private String selectValue;

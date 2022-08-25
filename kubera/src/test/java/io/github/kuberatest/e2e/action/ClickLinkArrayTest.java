@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ClickLinkArray extends ActionTest {
+public class ClickLinkArrayTest extends ActionTest {
 
     @Test
     public void ボタンをクリックできること() {
@@ -17,6 +17,6 @@ public class ClickLinkArray extends ActionTest {
 
         // TODO: ダイアログ操作系を実装したら修正
         String msg = Selenide.confirm();
-        assertTrue(msg.equals("1"));
+        assertEquals("1", msg);
     }
 }

@@ -11,6 +11,14 @@
       </b-row>
       <b-row>
         <b-col sm="3">
+          <label for="idInputPassword">Type:password</label>
+        </b-col>
+        <b-col sm="9">
+          <b-form-input type="password" id="idInputPassword" name="nameInputPassword" class="classInputPassword"></b-form-input>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
           <label>Type:Radio</label>
         </b-col>
         <b-col sm="9">
@@ -75,6 +83,151 @@
           <b-form-textarea id="idTextarea" name="nameTextarea" class="classTextarea"></b-form-textarea>
         </b-col>
       </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputButton">Type:Button</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="button" id="idInputButton" name="nameInputButton" class="classInputButton form-control" value="InputButton" v-on:click="clickInputButton">
+          <span id="idInputButtonClickResult">{{ inputButtonClickResult }}</span>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputFile">Type:File</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="file" id="idInputFile" name="nameInputFile" class="classInputFile form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputImage">Type:image</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="image" id="idInputImage" name="nameInputImage" class="classInputImage form-control" :src="require('@/assets/img/buttonImage.png')" v-on:click="clickInputImage">
+          <span id="idInputImageClickResult">{{ inputImageClickResult }}</span>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputSubmit">Type:submit</label>
+        </b-col>
+        <b-col sm="9">
+          <form v-on:submit.prevent="clickInputSubmit">
+            <input type="submit" id="idInputSubmit" name="nameInputSubmit" class="classInputSubmit form-control">
+            <span id="idInputSubmitClickResult">{{ inputSubmitClickResult }}</span>
+          </form>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputReset">Type:reset</label>
+        </b-col>
+        <b-col sm="9">
+          <form>
+            <input type="reset" id="idInputReset" name="nameInputReset" class="classInputReset form-control">
+            <b-form-input id="idInputResetText" name="nameInputResetText" class="classInputResetText"></b-form-input>
+          </form>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputSearch">Type:search</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="search" id="idInputSearch" name="nameInputSearch" class="classInputSearch form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputTel">Type:tel</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="tel" id="idInputTel" name="nameInputTel" class="classInputTel form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputURL">Type:url</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="url" id="idInputURL" name="nameInputURL" class="classInputURL form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputEMail">Type:email</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="email" id="idInputEMail" name="nameInputEMail" class="classInputEMail form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputDate">Type:date</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="date" id="idInputDate" name="nameInputDate" class="classInputDate form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputMonth">Type:month</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="month" id="idInputMonth" name="nameInputMonth" class="classInputMonth form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputWeek">Type:week</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="week" id="idInputWeek" name="nameInputWeek" class="classInputWeek form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputTime">Type:time</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="time" id="idInputTime" name="nameInputTime" class="classInputTime form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputDatetimeLocal">Type:datetime-local</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="datetime-local" id="idInputDatetimeLocal" name="nameInputDatetimeLocal" class="classInputDatetimeLocal form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputNumber">Type:number</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="number" id="idInputNumber" name="nameInputNumber" class="classInputNumber form-control">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputRange">Type:range</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="range" id="idInputRange" name="nameInputRange" class="classInputRange form-range"
+            min="0" max="100" step="5" value="0">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
+          <label for="idInputColor">Type:color</label>
+        </b-col>
+        <b-col sm="9">
+          <input type="color" id="idInputColor" name="nameInputColor" class="classInputColor form-control">
+        </b-col>
+      </b-row>
     </b-card>
   </div>
 </template>
@@ -87,4 +240,33 @@ div.classInputRadio {
 div.classInputCheckGroup {
   text-align: left;
 }
+
+input.classInputImage {
+  width: 80px;
+  height: 40px;
+}
 </style>
+
+<script>
+export default {
+  name: 'InputNormal',
+  data () {
+    return {
+      inputButtonClickResult: '',
+      inputImageClickResult: '',
+      inputSubmitClickResult: ''
+    }
+  },
+  methods: {
+    clickInputButton () {
+      this.inputButtonClickResult = 'Input Button がクリックされました。'
+    },
+    clickInputImage () {
+      this.inputImageClickResult = 'Input Image がクリックされました。'
+    },
+    clickInputSubmit () {
+      this.inputSubmitClickResult = 'Input Submit がクリックされました。'
+    }
+  }
+}
+</script>

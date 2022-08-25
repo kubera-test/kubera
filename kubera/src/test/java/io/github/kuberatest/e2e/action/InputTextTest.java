@@ -33,14 +33,6 @@ public class InputTextTest extends ActionTest {
 //        kubera.action("{ \"actionName\": \"inputTextbox\", "
 //                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"inputString\": \"selenide\" } }");
         // Arrange
-//        kubera.action("https://google.com/ncr");
-//        // Act
-//        new GoogleSearch().searchFor("selenide");
-//
-//        // Assert
-//        SearchResults results = new SearchResults();
-//        results.found.shouldHave(sizeGreaterThan(1));
-//        results.getResult(0).shouldHave(text("Selenide: concise UI tests in Java"));
     }
 
     @Test
