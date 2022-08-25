@@ -13,6 +13,7 @@ public class Select extends ElementWriterBase implements ElementWriter, ElementW
             writeInput();
             writeAssert();
         }
+        writeEmpty();
         writeIsVisible();
         writeIsEnabled();
         return activeRow;
@@ -51,6 +52,10 @@ public class Select extends ElementWriterBase implements ElementWriter, ElementW
 
     private void writeAssert() {
         write("assertSelect", "[選択]の選択内容を検証する");
+    }
+
+    private void writeEmpty() {
+        write("isEmpty", "[選択]が選択されていないことを検証する");
     }
 
     private void writeIsVisible() {

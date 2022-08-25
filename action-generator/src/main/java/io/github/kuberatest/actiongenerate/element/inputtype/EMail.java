@@ -12,6 +12,7 @@ public class EMail extends ElementWriterBase implements ElementWriter, ElementWr
     public int writeExcel() {
         writeInput();
         writeAssert();
+        writeEmpty();
         writeIsVisible();
         writeIsEnabled();
         return activeRow;
@@ -33,6 +34,10 @@ public class EMail extends ElementWriterBase implements ElementWriter, ElementWr
 
     private void writeAssert() {
         write("assertEMail", "[E-Mail]の値を検証する");
+    }
+
+    private void writeEmpty() {
+        write("isEmpty", "[E-Mail]の値が空であることを検証する");
     }
 
     private void writeIsVisible() {

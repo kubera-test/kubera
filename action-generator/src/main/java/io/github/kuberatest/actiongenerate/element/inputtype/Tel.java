@@ -12,6 +12,7 @@ public class Tel extends ElementWriterBase implements ElementWriter, ElementWrit
     public int writeExcel() {
         writeInput();
         writeAssert();
+        writeEmpty();
         writeIsVisible();
         writeIsEnabled();
         return activeRow;
@@ -33,6 +34,10 @@ public class Tel extends ElementWriterBase implements ElementWriter, ElementWrit
 
     private void writeAssert() {
         write("assertTel", "[電話番号]の値を検証する");
+    }
+
+    private void writeEmpty() {
+        write("isEmpty", "[電話番号]の値が空であることを検証する");
     }
 
     private void writeIsVisible() {

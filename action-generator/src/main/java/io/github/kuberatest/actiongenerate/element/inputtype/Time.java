@@ -12,6 +12,7 @@ public class Time extends ElementWriterBase implements ElementWriter, ElementWri
     public int writeExcel() {
         writeInput();
         writeAssert();
+        writeEmpty();
         writeIsVisible();
         writeIsEnabled();
         return activeRow;
@@ -33,6 +34,10 @@ public class Time extends ElementWriterBase implements ElementWriter, ElementWri
 
     private void writeAssert() {
         write("assertTime", "[時刻項目]の値を検証する");
+    }
+
+    private void writeEmpty() {
+        write("isEmpty", "[時刻項目]の値が空であることを検証する");
     }
 
     private void writeIsVisible() {

@@ -12,6 +12,7 @@ public class Month extends ElementWriterBase implements ElementWriter, ElementWr
     public int writeExcel() {
         writeInput();
         writeAssert();
+        writeEmpty();
         writeIsVisible();
         writeIsEnabled();
         return activeRow;
@@ -33,6 +34,9 @@ public class Month extends ElementWriterBase implements ElementWriter, ElementWr
 
     private void writeAssert() {
         write("assertMonth", "[年月項目]の値を検証する");
+    }
+    private void writeEmpty() {
+        write("isEmpty", "[年月項目]の値が空であることを検証する");
     }
 
     private void writeIsVisible() {

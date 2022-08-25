@@ -9,6 +9,7 @@ public class Textarea extends ElementWriterBase implements ElementWriter {
     public int writeExcel() {
         writeInput();
         writeAssert();
+        writeEmpty();
         writeIsVisible();
         writeIsEnabled();
         return activeRow;
@@ -29,7 +30,11 @@ public class Textarea extends ElementWriterBase implements ElementWriter {
     }
 
     private void writeAssert() {
-        write("assertTextarea", "[テキストエリア]に値を入力する");
+        write("assertTextarea", "[テキストエリア]の値を検証する");
+    }
+
+    private void writeEmpty() {
+        write("isEmpty", "[テキストエリア]の値が空であることを検証する");
     }
 
     private void writeIsVisible() {

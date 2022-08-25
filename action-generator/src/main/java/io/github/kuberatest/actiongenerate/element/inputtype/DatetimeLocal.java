@@ -12,6 +12,7 @@ public class DatetimeLocal extends ElementWriterBase implements ElementWriter, E
     public int writeExcel() {
         writeInput();
         writeAssert();
+        writeEmpty();
         writeIsVisible();
         writeIsEnabled();
         return activeRow;
@@ -33,6 +34,10 @@ public class DatetimeLocal extends ElementWriterBase implements ElementWriter, E
 
     private void writeAssert() {
         write("assertDatetimeLocal", "[年月日時分]の値を検証する");
+    }
+
+    private void writeEmpty() {
+        write("isEmpty", "[年月日時分]の値が空であることを検証する");
     }
 
     private void writeIsVisible() {
