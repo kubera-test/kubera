@@ -20,5 +20,10 @@ public class InputTextareaTest extends ActionTest {
         kubera.action("{ \"actionName\": \"assertTextarea\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idTextarea\", \"checkValue\": \"テキストエリアに\\n改行ありで入力\" } }");
 
+        kubera.action("{ \"actionName\": \"clearTextarea\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idTextarea\" } }");
+        kubera.action("{ \"actionName\": \"assertTextarea\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idTextarea\", \"checkValue\": \"\" } }");
+
     }
 }

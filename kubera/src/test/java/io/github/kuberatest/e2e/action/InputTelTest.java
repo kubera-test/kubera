@@ -15,8 +15,8 @@ public class InputTelTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTel\", \"inputString\": \"*819012345678\" } }");
         kubera.action("{ \"actionName\": \"assertTel\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTel\", \"checkValue\": \"*819012345678\" } }");
-        kubera.action("{ \"actionName\": \"inputTel\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTel\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearTel\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTel\" } }");
         kubera.action("{ \"actionName\": \"assertTel\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTel\", \"checkValue\": \"\" } }");
     }

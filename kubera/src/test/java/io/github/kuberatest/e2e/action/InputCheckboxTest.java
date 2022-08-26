@@ -39,6 +39,17 @@ public class InputCheckboxTest extends ActionTest {
         kubera.action("{ \"actionName\": \"assertCheckbox\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckC\", \"checked\": \"False\" } }");
 
+        kubera.action("{ \"actionName\": \"clearCheckbox\", "
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputCheckB\" } }");
+        kubera.action("{ \"actionName\": \"inputCheckbox\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckC\", \"checked\": \"True\" } }");
+        kubera.action("{ \"actionName\": \"assertCheckbox\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckA\", \"checked\": \"False\" } }");
+        kubera.action("{ \"actionName\": \"assertCheckbox\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckB\", \"checked\": \"False\" } }");
+        kubera.action("{ \"actionName\": \"assertCheckbox\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckC\", \"checked\": \"True\" } }");
+
     }
 
     @Test

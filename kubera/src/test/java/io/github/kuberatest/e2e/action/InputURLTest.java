@@ -16,8 +16,8 @@ public class InputURLTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputURL\", \"inputString\": \"http://localhost:8080/\" } }");
         kubera.action("{ \"actionName\": \"assertURL\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputURL\", \"checkValue\": \"http://localhost:8080/\" } }");
-        kubera.action("{ \"actionName\": \"inputURL\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputURL\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearURL\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputURL\" } }");
         kubera.action("{ \"actionName\": \"assertURL\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputURL\", \"checkValue\": \"\" } }");
     }

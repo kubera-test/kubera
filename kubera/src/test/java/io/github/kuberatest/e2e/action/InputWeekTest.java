@@ -16,8 +16,8 @@ public class InputWeekTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputWeek\", \"inputString\": \"2022-W22\" } }");
         kubera.action("{ \"actionName\": \"assertWeek\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputWeek\", \"checkValue\": \"2022-W22\" } }");
-        kubera.action("{ \"actionName\": \"inputWeek\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputWeek\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearWeek\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputWeek\" } }");
         kubera.action("{ \"actionName\": \"assertWeek\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputWeek\", \"checkValue\": \"\" } }");
     }

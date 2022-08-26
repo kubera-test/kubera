@@ -15,5 +15,10 @@ public class InputFileTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputFile\", \"fileName\": \"/json/json-array.json\" } }");
         kubera.action("{ \"actionName\": \"assertFile\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputFile\", \"checkValue\": \"json-array.json\" } }");
+
+        kubera.action("{ \"actionName\": \"clearFile\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputFile\" } }");
+        kubera.action("{ \"actionName\": \"assertFile\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputFile\", \"checkValue\": \"\" } }");
     }
 }

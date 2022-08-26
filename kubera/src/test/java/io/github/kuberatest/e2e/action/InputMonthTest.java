@@ -16,8 +16,8 @@ public class InputMonthTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputMonth\", \"inputString\": \"2022-08\" } }");
         kubera.action("{ \"actionName\": \"assertMonth\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputMonth\", \"checkValue\": \"2022-08\" } }");
-        kubera.action("{ \"actionName\": \"inputMonth\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputMonth\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearMonth\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputMonth\" } }");
         kubera.action("{ \"actionName\": \"assertMonth\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputMonth\", \"checkValue\": \"\" } }");
     }

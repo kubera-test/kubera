@@ -16,8 +16,8 @@ public class InputPasswordTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputPassword\", \"inputString\": \"passwordを入力\" } }");
         kubera.action("{ \"actionName\": \"assertPassword\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputPassword\", \"checkValue\": \"passwordを入力\" } }");
-        kubera.action("{ \"actionName\": \"inputPassword\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputPassword\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearPassword\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputPassword\" } }");
         kubera.action("{ \"actionName\": \"assertPassword\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputPassword\", \"checkValue\": \"\" } }");
     }

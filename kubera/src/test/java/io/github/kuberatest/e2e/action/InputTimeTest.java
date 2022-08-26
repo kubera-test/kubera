@@ -16,8 +16,8 @@ public class InputTimeTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTime\", \"inputString\": \"23:50\" } }");
         kubera.action("{ \"actionName\": \"assertTime\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTime\", \"checkValue\": \"23:50\" } }");
-        kubera.action("{ \"actionName\": \"inputTime\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTime\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearTime\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTime\" } }");
         kubera.action("{ \"actionName\": \"assertTime\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputTime\", \"checkValue\": \"\" } }");
     }

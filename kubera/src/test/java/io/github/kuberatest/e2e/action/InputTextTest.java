@@ -16,8 +16,8 @@ public class InputTextTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\", \"inputString\": \"idを入力\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\", \"checkValue\": \"idを入力\" } }");
-        kubera.action("{ \"actionName\": \"inputTextbox\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearTextbox\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputText\", \"checkValue\": \"\" } }");
 
@@ -47,8 +47,8 @@ public class InputTextTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"inputString\": \"nameを入力\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"checkValue\": \"nameを入力\" } }");
-        kubera.action("{ \"actionName\": \"inputTextbox\", "
-                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearTextbox\", "
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputText\", \"checkValue\": \"\" } }");
     }
@@ -65,8 +65,8 @@ public class InputTextTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\", \"inputString\": \"class nameを入力\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\", \"checkValue\": \"class nameを入力\" } }");
-        kubera.action("{ \"actionName\": \"inputTextbox\", "
-                + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearTextbox\", "
+                + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"class_name\", \"searchExpression\": \"classInputText\", \"checkValue\": \"\" } }");
     }
@@ -83,8 +83,8 @@ public class InputTextTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"inputString\": \"CSS Selectorを入力\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"checkValue\": \"CSS Selectorを入力\" } }");
-        kubera.action("{ \"actionName\": \"inputTextbox\", "
-                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearTextbox\", "
+                + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"css_selector\", \"searchExpression\": \"input[name='nameInputText']\", \"checkValue\": \"\" } }");
     }
@@ -101,8 +101,8 @@ public class InputTextTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\", \"inputString\": \"xPathを入力\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\", \"checkValue\": \"xPathを入力\" } }");
-        kubera.action("{ \"actionName\": \"inputTextbox\", "
-                + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearTextbox\", "
+                + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\" } }");
         kubera.action("{ \"actionName\": \"assertTextbox\", "
                 + "\"actionJson\": { \"locator\": \"xpath\", \"searchExpression\": \"//input[@name='nameInputText']\", \"checkValue\": \"\" } }");
     }

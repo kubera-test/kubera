@@ -16,8 +16,8 @@ public class InputSearchTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputSearch\", \"inputString\": \"検索文字列を入力\" } }");
         kubera.action("{ \"actionName\": \"assertSearch\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputSearch\", \"checkValue\": \"検索文字列を入力\" } }");
-        kubera.action("{ \"actionName\": \"inputSearch\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputSearch\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearSearch\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputSearch\" } }");
         kubera.action("{ \"actionName\": \"assertSearch\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputSearch\", \"checkValue\": \"\" } }");
     }

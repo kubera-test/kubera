@@ -16,8 +16,8 @@ public class InputNumberTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputNumber\", \"inputString\": \"10\" } }");
         kubera.action("{ \"actionName\": \"assertNumber\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputNumber\", \"checkValue\": \"10\" } }");
-        kubera.action("{ \"actionName\": \"inputNumber\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputNumber\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearNumber\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputNumber\" } }");
         kubera.action("{ \"actionName\": \"assertNumber\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputNumber\", \"checkValue\": \"\" } }");
     }

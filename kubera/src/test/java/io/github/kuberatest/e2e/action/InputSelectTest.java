@@ -19,10 +19,10 @@ public class InputSelectTest extends ActionTest {
         kubera.action("{ \"actionName\": \"assertSelect\", "
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelect\", \"checkValue\": \"A\" } }");
 
-        kubera.action("{ \"actionName\": \"inputSelect\", "
-                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelect\", \"selectValue\": \"C\" } }");
+        kubera.action("{ \"actionName\": \"clearSelect\", "
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelect\" } }");
         kubera.action("{ \"actionName\": \"assertSelect\", "
-                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelect\", \"checkValue\": \"C\" } }");
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputSelect\", \"checkValue\": \"\" } }");
 
     }
 

@@ -16,8 +16,8 @@ public class InputDateTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputDate\", \"inputString\": \"2022-08-24\" } }");
         kubera.action("{ \"actionName\": \"assertDate\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputDate\", \"checkValue\": \"2022-08-24\" } }");
-        kubera.action("{ \"actionName\": \"inputDate\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputDate\", \"inputString\": \"\" } }");
+        kubera.action("{ \"actionName\": \"clearDate\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputDate\" } }");
         kubera.action("{ \"actionName\": \"assertDate\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputDate\", \"checkValue\": \"\" } }");
     }

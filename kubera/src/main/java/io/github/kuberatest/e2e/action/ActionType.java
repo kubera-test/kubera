@@ -1,7 +1,7 @@
 package io.github.kuberatest.e2e.action;
 
 import io.github.kuberatest.e2e.action.assertion.*;
-import io.github.kuberatest.e2e.action.clear.ClearSelectMulti;
+import io.github.kuberatest.e2e.action.clear.*;
 import io.github.kuberatest.e2e.action.click.*;
 import io.github.kuberatest.e2e.action.input.*;
 import io.github.kuberatest.e2e.action.screenshot.TakeScreenshot;
@@ -16,57 +16,73 @@ public enum ActionType {
 
     // ---------------------------------------------- Input
     INPUT_TEXTBOX("inputTextbox", InputTextbox.class),
+    CLEAR_TEXTBOX("clearTextbox", ClearTextbox.class),
     ASSERT_TEXTBOX("assertTextbox", AssertTextbox.class),
 
     INPUT_PASSWORD("inputPassword", InputPassword.class),
+    CLEAR_PASSWORD("clearPassword", ClearPassword.class),
     ASSERT_PASSWORD("assertPassword", AssertPassword.class),
 
     SELECT_RADIO("selectRadio", SelectRadio.class),
     ASSERT_RADIO("assertRadio", AssertRadio.class),
 
     INPUT_CHECKBOX("inputCheckbox", InputCheckbox.class),
+    CLEAR_CHECKBOX("clearCheckbox", ClearCheckbox.class),
     ASSERT_CHECKBOX("assertCheckbox", AssertCheckbox.class),
 
     INPUT_SELECT("inputSelect", InputSelect.class),
+    CLEAR_SELECT("clearSelect", ClearSelect.class),
     ASSERT_SELECT("assertSelect", AssertSelect.class),
     INPUT_SELECT_MULTI("inputSelectMulti", InputSelectMulti.class),
-    ASSERT_SELECT_MULTI("assertSelectMulti", AssertSelectMulti.class),
     CLEAR_SELECT_MULTI("clearSelectMulti", ClearSelectMulti.class),
+    ASSERT_SELECT_MULTI("assertSelectMulti", AssertSelectMulti.class),
 
     INPUT_TEXTAREA("inputTextarea", InputTextarea.class),
+    CLEAR_TEXTAREA("clearTextarea", ClearTextarea.class),
     ASSERT_TEXTAREA("assertTextarea", AssertTextarea.class),
 
     INPUT_FILE("inputFile", InputFile.class),
+    CLEAR_FILE("clearFile", ClearFile.class),
     ASSERT_FILE("assertFile", AssertFile.class),
 
     INPUT_SEARCH("inputSearch", InputSearch.class),
+    CLEAR_SEARCH("clearSearch", ClearSearch.class),
     ASSERT_SEARCH("assertSearch", AssertSearch.class),
 
     INPUT_TEL("inputTel", InputTel.class),
+    CLEAR_TEL("clearTel", ClearTel.class),
     ASSERT_TEL("assertTel", AssertTel.class),
 
     INPUT_URL("inputURL", InputURL.class),
+    CLEAR_URL("clearURL", ClearURL.class),
     ASSERT_URL("assertURL", AssertURL.class),
 
     INPUT_EMAIL("inputEMail", InputEMail.class),
+    CLEAR_EMAIL("clearEMail", ClearEMail.class),
     ASSERT_EMAIL("assertEMail", AssertEMail.class),
 
     INPUT_DATE("inputDate", InputDate.class),
+    CLEAR_DATE("clearDate", ClearDate.class),
     ASSERT_DATE("assertDate", AssertDate.class),
 
     INPUT_MONTH("inputMonth", InputMonth.class),
+    CLEAR_MONTH("clearMonth", ClearMonth.class),
     ASSERT_MONTH("assertMonth", AssertMonth.class),
 
     INPUT_WEEK("inputWeek", InputWeek.class),
+    CLEAR_WEEK("clearWeek", ClearWeek.class),
     ASSERT_WEEK("assertWeek", AssertWeek.class),
 
     INPUT_TIME("inputTime", InputTime.class),
+    CLEAR_TIME("clearTime", ClearTime.class),
     ASSERT_TIME("assertTime", AssertTime.class),
 
     INPUT_DATETIME_LOCAL("inputDatetimeLocal", InputDatetimeLocal.class),
+    CLEAR_DATETIME_LOCAL("clearDatetimeLocal", ClearDatetimeLocal.class),
     ASSERT_DATETIME_LOCAL("assertDatetimeLocal", AssertDatetimeLocal.class),
 
     INPUT_NUMBER("inputNumber", InputNumber.class),
+    CLEAR_NUMBER("clearNumber", ClearNumber.class),
     ASSERT_NUMBER("assertNumber", AssertNumber.class),
 
     INPUT_RANGE("inputRange", InputRange.class),
