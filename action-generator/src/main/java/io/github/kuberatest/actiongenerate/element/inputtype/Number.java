@@ -11,6 +11,7 @@ public class Number extends ElementWriterBase implements ElementWriter, ElementW
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class Number extends ElementWriterBase implements ElementWriter, ElementW
 
     private void writeInput() {
         write("inputNumber", "[数値項目]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearNumber", "[数値項目]の値をクリアする");
     }
 
     private void writeAssert() {

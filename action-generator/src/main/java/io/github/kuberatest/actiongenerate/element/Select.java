@@ -7,10 +7,11 @@ public class Select extends ElementWriterBase implements ElementWriter, ElementW
     public int writeExcel() {
         if (isMulti()) {
             writeInputMulti();
-            writeAssertMulti();
             writeClearMulti();
+            writeAssertMulti();
         } else {
             writeInput();
+            writeClear();
             writeAssert();
         }
         writeEmpty();
@@ -38,16 +39,20 @@ public class Select extends ElementWriterBase implements ElementWriter, ElementW
         write("inputSelectMulti", "[複数選択]の選択内容を変更する");
     }
 
-    private void writeAssertMulti() {
-        write("assertSelectMulti", "[複数選択]の選択内容を検証する");
-    }
-
     private void writeClearMulti() {
         write("clearSelectMulti", "[複数選択]の選択内容をクリアする");
     }
 
+    private void writeAssertMulti() {
+        write("assertSelectMulti", "[複数選択]の選択内容を検証する");
+    }
+
     private void writeInput() {
         write("inputSelect", "[選択]の選択内容を変更する");
+    }
+
+    private void writeClear() {
+        write("clearSelect", "[選択]の選択内容をクリアする");
     }
 
     private void writeAssert() {

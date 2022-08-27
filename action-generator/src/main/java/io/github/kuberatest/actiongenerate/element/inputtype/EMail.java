@@ -11,6 +11,7 @@ public class EMail extends ElementWriterBase implements ElementWriter, ElementWr
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class EMail extends ElementWriterBase implements ElementWriter, ElementWr
 
     private void writeInput() {
         write("inputEMail", "[E-Mail]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearEMail", "[E-Mail]の値をクリアする");
     }
 
     private void writeAssert() {

@@ -9,6 +9,7 @@ public class Checkbox extends ElementWriterBase implements ElementWriter, Elemen
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeIsVisible();
         writeIsEnabled();
@@ -26,7 +27,11 @@ public class Checkbox extends ElementWriterBase implements ElementWriter, Elemen
     }
 
     private void writeInput() {
-        write("inputCheckbox", "[チェックボックス]の選択状態を変更する");
+        write("inputCheckbox", "[チェックボックス]をチェックする");
+    }
+
+    private void writeClear() {
+        write("clearCheckbox", "[チェックボックス]のチェックをクリアする");
     }
 
     private void writeAssert() {

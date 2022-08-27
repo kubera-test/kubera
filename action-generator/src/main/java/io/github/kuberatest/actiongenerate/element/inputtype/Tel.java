@@ -11,6 +11,7 @@ public class Tel extends ElementWriterBase implements ElementWriter, ElementWrit
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class Tel extends ElementWriterBase implements ElementWriter, ElementWrit
 
     private void writeInput() {
         write("inputTel", "[電話番号]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearTel", "[電話番号]の値をクリアする");
     }
 
     private void writeAssert() {

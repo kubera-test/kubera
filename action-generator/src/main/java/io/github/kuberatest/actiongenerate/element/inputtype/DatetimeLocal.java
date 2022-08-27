@@ -11,6 +11,7 @@ public class DatetimeLocal extends ElementWriterBase implements ElementWriter, E
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class DatetimeLocal extends ElementWriterBase implements ElementWriter, E
 
     private void writeInput() {
         write("inputDatetimeLocal", "[年月日時分]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearDatetimeLocal", "[年月日時分]の値をクリアする");
     }
 
     private void writeAssert() {

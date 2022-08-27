@@ -11,6 +11,7 @@ public class Password extends ElementWriterBase implements ElementWriter, Elemen
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class Password extends ElementWriterBase implements ElementWriter, Elemen
 
     private void writeInput() {
         write("inputPassword", "[パスワード]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearPassword", "[パスワード]の値をクリアする");
     }
 
     private void writeAssert() {

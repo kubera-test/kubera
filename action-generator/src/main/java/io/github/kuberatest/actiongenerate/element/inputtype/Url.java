@@ -11,6 +11,7 @@ public class Url extends ElementWriterBase implements ElementWriter, ElementWrit
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class Url extends ElementWriterBase implements ElementWriter, ElementWrit
 
     private void writeInput() {
         write("inputURL", "[URL]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearURL", "[URL]の値をクリアする");
     }
 
     private void writeAssert() {

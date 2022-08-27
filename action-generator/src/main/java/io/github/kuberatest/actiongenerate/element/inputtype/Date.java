@@ -11,6 +11,7 @@ public class Date extends ElementWriterBase implements ElementWriter, ElementWri
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class Date extends ElementWriterBase implements ElementWriter, ElementWri
 
     private void writeInput() {
         write("inputDate", "[日付項目]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearDate", "[日付項目]の値をクリアする");
     }
 
     private void writeAssert() {

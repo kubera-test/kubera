@@ -11,6 +11,7 @@ public class Week extends ElementWriterBase implements ElementWriter, ElementWri
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class Week extends ElementWriterBase implements ElementWriter, ElementWri
 
     private void writeInput() {
         write("inputWeek", "[週項目]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearWeek", "[週項目]の値をクリアする");
     }
 
     private void writeAssert() {

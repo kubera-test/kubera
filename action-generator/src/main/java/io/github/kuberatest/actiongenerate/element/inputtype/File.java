@@ -11,6 +11,7 @@ public class File extends ElementWriterBase implements ElementWriter, ElementWri
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class File extends ElementWriterBase implements ElementWriter, ElementWri
 
     private void writeInput() {
         write("inputFile", "[ファイル]にファイルを選択する");
+    }
+
+    private void writeClear() {
+        write("clearFile", "[ファイル]の値をクリアする");
     }
 
     private void writeAssert() {

@@ -8,6 +8,7 @@ public class Textarea extends ElementWriterBase implements ElementWriter {
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -27,6 +28,10 @@ public class Textarea extends ElementWriterBase implements ElementWriter {
 
     private void writeInput() {
         write("inputTextarea", "[テキストエリア]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearTextarea", "[テキストエリア]の値をクリアする");
     }
 
     private void writeAssert() {

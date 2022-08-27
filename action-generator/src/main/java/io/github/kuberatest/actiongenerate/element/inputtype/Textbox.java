@@ -11,6 +11,7 @@ public class Textbox extends ElementWriterBase implements ElementWriter, Element
     @Override
     public int writeExcel() {
         writeInput();
+        writeClear();
         writeAssert();
         writeEmpty();
         writeIsVisible();
@@ -30,6 +31,10 @@ public class Textbox extends ElementWriterBase implements ElementWriter, Element
 
     private void writeInput() {
         write("inputTextbox", "[テキストボックス]に値を入力する");
+    }
+
+    private void writeClear() {
+        write("clearTextbox", "[テキストボックス]の値をクリアする");
     }
 
     private void writeAssert() {
