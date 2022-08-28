@@ -5,12 +5,11 @@ import io.github.kuberatest.e2e.action.Action;
 import io.github.kuberatest.e2e.action.ObjectAction;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
 
-public class IsVisible  extends ObjectAction implements Action {
-
+public class IsDisable extends ObjectAction implements Action {
 
     @Override
     public void execute() {
-        getSelenideElement().shouldBe(Condition.appear);
+        getSelenideElement().shouldBe(Condition.disabled);
     }
 
     @Override
