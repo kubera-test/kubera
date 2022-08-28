@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import java.util.stream.Stream;
 
 public abstract class ElementWriterBase implements ElementWriter, ElementWriterIndependentOfData {
+
     protected  Workbook workbook;
     protected Sheet sheet;
     protected int activeRow;
@@ -86,4 +87,17 @@ public abstract class ElementWriterBase implements ElementWriter, ElementWriterI
         }
         activeRow++;
     }
+
+    protected void writeIsVisible() {
+        write("isVisible", String.format("[%s]が表示されていることを検証する", getObjectName()));
+        write("isInvisible", String.format("[%s]が表示されていないことを検証する", getObjectName()));
+    }
+
+
+    protected void writeIsEnabled() {
+        write("isEnable", String.format("[%s]の使用可能であることを検証する", getObjectName()));
+        write("isDisable", String.format("[%s]の使用不可であることを検証する", getObjectName()));
+    }
+
+    protected abstract String getObjectName();
 }

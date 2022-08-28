@@ -11,7 +11,8 @@ public class ClearSelectMulti extends ObjectAction implements Action {
 
     @Override
     public void execute() {
-        for (SelenideElement element:  Selenide.$(LocateGenerator.getInstance().getLocator(getLocator(), getSearchExpression())).$$("option")) {
+        for (SelenideElement element:
+                Selenide.$(LocateGenerator.getInstance().getLocator(getLocator(), getSearchExpression())).$$("option")) {
             element.setSelected(false);
         }
     }

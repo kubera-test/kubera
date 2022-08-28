@@ -3,6 +3,8 @@ package io.github.kuberatest.actiongenerate.element.inputtype;
 import io.github.kuberatest.actiongenerate.element.ElementWriter;
 import io.github.kuberatest.actiongenerate.element.ElementWriterBase;
 import io.github.kuberatest.actiongenerate.element.ElementWriterIndependentOfData;
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.apache.poi.ss.usermodel.*;
 
 public class Checkbox extends ElementWriterBase implements ElementWriter, ElementWriterIndependentOfData {
@@ -38,11 +40,8 @@ public class Checkbox extends ElementWriterBase implements ElementWriter, Elemen
         write("assertCheckbox", "[チェックボックス]の選択状態を検証する");
     }
 
-    private void writeIsVisible() {
-        write("isVisible", "[チェックボックス]の表示状態を検証する");
-    }
-
-    private void writeIsEnabled() {
-        write("isEnable", "[チェックボックス]の使用可能状態を検証する");
+    @Override
+    protected String getObjectName() {
+        return Messages.getMessage(MessageKey.OBJECT_CHECKBOX);
     }
 }

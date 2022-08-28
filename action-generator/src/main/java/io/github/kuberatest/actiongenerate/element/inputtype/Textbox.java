@@ -3,6 +3,8 @@ package io.github.kuberatest.actiongenerate.element.inputtype;
 import io.github.kuberatest.actiongenerate.element.ElementWriter;
 import io.github.kuberatest.actiongenerate.element.ElementWriterBase;
 import io.github.kuberatest.actiongenerate.element.ElementWriterIndependentOfData;
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -45,11 +47,8 @@ public class Textbox extends ElementWriterBase implements ElementWriter, Element
         write("isEmpty", "[テキストボックス]の値が空であることを検証する");
     }
 
-    private void writeIsVisible() {
-        write("isVisible", "[テキストボックス]の表示状態を検証する");
-    }
-
-    private void writeIsEnabled() {
-        write("isEnable", "[テキストボックス]の使用可能状態を検証する");
+    @Override
+    protected String getObjectName() {
+        return Messages.getMessage(MessageKey.OBJECT_TEXTBOX);
     }
 }

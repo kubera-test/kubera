@@ -3,6 +3,7 @@ package io.github.kuberatest.e2e.testcasereader;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import io.github.kuberatest.util.KuberaKey;
 import org.junit.jupiter.params.provider.Arguments;
 
 import java.io.IOException;
@@ -26,7 +27,10 @@ public class JsonReader {
         ArrayNode arrayNode = readJsonArrayFile(jsonFileInputStream);
         List<Arguments> arguments = new ArrayList<>();
         for (JsonNode jsonNode: arrayNode) {
-            arguments.add(Arguments.arguments(jsonNode.get("TestCaseName").toPrettyString(), jsonNode.get("TestCases")));
+            arguments.add(
+                    Arguments.arguments(
+                            jsonNode.get(KuberaKey.JSON_TEST_CASE_NAME.getKeyName()).toPrettyString(),
+                            jsonNode.get(KuberaKey.JSON_TEST_CASES.getKeyName())));
         }
         return arguments.stream();
     }

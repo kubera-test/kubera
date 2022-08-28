@@ -1,5 +1,7 @@
 package io.github.kuberatest.actiongenerate.element;
 
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.apache.poi.ss.usermodel.*;
 
 public class Img extends ElementWriterBase implements ElementWriter, ElementWriterIndependentOfData {
@@ -24,11 +26,9 @@ public class Img extends ElementWriterBase implements ElementWriter, ElementWrit
     private void writeClick() {
         write("clickButton", "[画像]をクリックする");
     }
-    private void writeIsVisible() {
-        write("isVisible", "[画像]の表示状態を検証する");
-    }
 
-    private void writeIsEnabled() {
-        write("isEnable", "[画像]の使用可能状態を検証する");
+    @Override
+    protected String getObjectName() {
+        return Messages.getMessage(MessageKey.OBJECT_IMAGE);
     }
 }

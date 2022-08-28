@@ -3,6 +3,8 @@ package io.github.kuberatest.actiongenerate.element.inputtype;
 import io.github.kuberatest.actiongenerate.element.ElementWriter;
 import io.github.kuberatest.actiongenerate.element.ElementWriterBase;
 import io.github.kuberatest.actiongenerate.element.ElementWriterIndependentOfData;
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
@@ -35,11 +37,8 @@ public class Range extends ElementWriterBase implements ElementWriter, ElementWr
         write("assertRange", "[範囲]の値を検証する");
     }
 
-    private void writeIsVisible() {
-        write("isVisible", "[範囲]の表示状態を検証する");
-    }
-
-    private void writeIsEnabled() {
-        write("isEnable", "[範囲]の使用可能状態を検証する");
+    @Override
+    protected String getObjectName() {
+        return Messages.getMessage(MessageKey.OBJECT_RANGE);
     }
 }

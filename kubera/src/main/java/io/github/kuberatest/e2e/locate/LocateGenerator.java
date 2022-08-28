@@ -1,5 +1,6 @@
 package io.github.kuberatest.e2e.locate;
 
+import io.github.kuberatest.util.KuberaKey;
 import org.openqa.selenium.By;
 
 import java.util.Map;
@@ -19,14 +20,14 @@ public final class LocateGenerator {
     }
 
     protected LocateGenerator() {
-        locatorClassDefinitions.put("id", new IdLocator());
-        locatorClassDefinitions.put("name", new NameLocator());
-        locatorClassDefinitions.put("css_selector", new CssSelectorLocator());
-        locatorClassDefinitions.put("xpath", new XPathLocator());
-        locatorClassDefinitions.put("link_text", new LinkTextLocator());
-        locatorClassDefinitions.put("partial_link_text", new PartialLinkTextLocator());
-        locatorClassDefinitions.put("tag_name", new TagNameLocator());
-        locatorClassDefinitions.put("class_name", new ClassNameLocator());
+        locatorClassDefinitions.put(KuberaKey.LOCATOR_ID.getKeyName(), new IdLocator());
+        locatorClassDefinitions.put(KuberaKey.LOCATOR_NAME.getKeyName(), new NameLocator());
+        locatorClassDefinitions.put(KuberaKey.LOCATOR_CSS_SELECTOR.getKeyName(), new CssSelectorLocator());
+        locatorClassDefinitions.put(KuberaKey.LOCATOR_XPATH.getKeyName(), new XPathLocator());
+        locatorClassDefinitions.put(KuberaKey.LOCATOR_LINK_TEXT.getKeyName(), new LinkTextLocator());
+        locatorClassDefinitions.put(KuberaKey.LOCATOR_PARTIAL_LINK_TEXT.getKeyName(), new PartialLinkTextLocator());
+        locatorClassDefinitions.put(KuberaKey.LOCATOR_TAG_NAME.getKeyName(), new TagNameLocator());
+        locatorClassDefinitions.put(KuberaKey.LOCATOR_CLASS_NAME.getKeyName(), new ClassNameLocator());
     }
 
     public By getLocator(String locatorName, String searchExpression) {

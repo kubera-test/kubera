@@ -3,6 +3,8 @@ package io.github.kuberatest.actiongenerate.element.inputtype;
 import io.github.kuberatest.actiongenerate.element.ElementWriter;
 import io.github.kuberatest.actiongenerate.element.ElementWriterBase;
 import io.github.kuberatest.actiongenerate.element.ElementWriterIndependentOfData;
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
@@ -15,6 +17,7 @@ public class Number extends ElementWriterBase implements ElementWriter, ElementW
         writeAssert();
         writeEmpty();
         writeIsVisible();
+
         writeIsEnabled();
         return activeRow;
     }
@@ -45,11 +48,8 @@ public class Number extends ElementWriterBase implements ElementWriter, ElementW
         write("isEmpty", "[数値項目]の値が空であることを検証する");
     }
 
-    private void writeIsVisible() {
-        write("isVisible", "[数値項目]の表示状態を検証する");
-    }
-
-    private void writeIsEnabled() {
-        write("isEnable", "[数値項目]の使用可能状態を検証する");
+    @Override
+    protected String getObjectName() {
+        return Messages.getMessage(MessageKey.OBJECT_NUMBER);
     }
 }

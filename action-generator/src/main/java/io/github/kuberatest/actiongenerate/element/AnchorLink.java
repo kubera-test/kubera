@@ -1,5 +1,7 @@
 package io.github.kuberatest.actiongenerate.element;
 
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.apache.poi.ss.usermodel.*;
 import org.openqa.selenium.WebElement;
 
@@ -34,11 +36,8 @@ public class AnchorLink extends ElementWriterBase implements ElementWriter, Elem
         write("clickLink", "[リンク]をクリックする");
     }
 
-    private void writeIsVisible() {
-        write("isVisible", "[リンク]の表示状態を検証する");
-    }
-
-    private void writeIsEnabled() {
-        write("isEnable", "[リンク]の使用可能状態を検証する");
+    @Override
+    protected String getObjectName() {
+        return Messages.getMessage(MessageKey.OBJECT_ANCHOR_LINK);
     }
 }

@@ -10,9 +10,9 @@ public class EnableTest extends ActionTest {
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/status\" } }");
 
         kubera.action("{ \"actionName\": \"isEnable\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"enableButton\", \"enabled\": \"true\" } }");
-        kubera.action("{ \"actionName\": \"isEnable\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"disableButton\", \"enabled\": \"false\" } }");
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"enableButton\" } }");
+        kubera.action("{ \"actionName\": \"isDisable\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"disableButton\" } }");
     }
 
 }

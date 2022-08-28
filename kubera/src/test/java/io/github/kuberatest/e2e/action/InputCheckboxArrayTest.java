@@ -30,7 +30,7 @@ public class InputCheckboxArrayTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckArrayC\", \"checked\": \"False\", \"index\": 3 } }");
 
         kubera.action("{ \"actionName\": \"inputCheckbox\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckArrayA\", \"checked\": \"True\", \"index\": 2 } }");
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckArrayA\", \"index\": 2 } }");
         kubera.action("{ \"actionName\": \"assertCheckbox\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckArrayA\", \"checked\": \"False\", \"index\": 1 } }");
         kubera.action("{ \"actionName\": \"assertCheckbox\", "
@@ -50,10 +50,10 @@ public class InputCheckboxArrayTest extends ActionTest {
         kubera.action("{ \"actionName\": \"assertCheckbox\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckArrayC\", \"checked\": \"False\", \"index\": 3 } }");
 
+        kubera.action("{ \"actionName\": \"clearCheckbox\", "
+                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputCheckArrayA\", \"index\": 2 } }");
         kubera.action("{ \"actionName\": \"inputCheckbox\", "
-                + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputCheckArrayA\", \"checked\": \"False\", \"index\": 2 } }");
-        kubera.action("{ \"actionName\": \"inputCheckbox\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckArrayB\", \"checked\": \"True\", \"index\": 2 } }");
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckArrayB\", \"index\": 2 } }");
         kubera.action("{ \"actionName\": \"assertCheckbox\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckArrayA\", \"checked\": \"False\", \"index\": 1 } }");
         kubera.action("{ \"actionName\": \"assertCheckbox\", "

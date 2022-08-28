@@ -58,25 +58,8 @@ public abstract class ObjectAction extends TestCaseAction implements Action {
     }
 
     protected boolean isCheckedString(String value) {
+        // TODO: このメソッドは削除して、AsserCheckboxをIsCheckedとIsUncheckに分割する
         final List<String> checkedString = new ArrayList<>(Arrays.asList("TRUE", "True", "true", "〇", "check", "*", "v", "V"));
-        if (checkedString.contains(value)) {
-            return true;
-        }
-        return false;
-    }
-
-    protected Boolean isVisibleString(String value) {
-        final List<String> checkedString = new ArrayList<>(Arrays.asList("TRUE", "True", "true", "表示`"));
-        if (checkedString.contains(value)) {
-            return true;
-        } else if (isInvisibleString(value)) {
-            return false;
-        }
-        return null;
-    }
-
-    protected Boolean isInvisibleString(String value) {
-        final List<String> checkedString = new ArrayList<>(Arrays.asList("FALSE", "False", "false", "非表示`"));
         if (checkedString.contains(value)) {
             return true;
         }

@@ -6,21 +6,10 @@ import io.github.kuberatest.e2e.action.ObjectAction;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
 
 public class IsEmpty extends ObjectAction implements Action {
-    private Boolean empty;
-
-    public Boolean getEmpty() {
-        return empty;
-    }
-
-    public void setEmpty(Boolean empty) {
-        this.empty = empty;
-    }
 
     @Override
     public void execute() {
-        if (empty) {
-            getSelenideElement().shouldBe(Condition.empty);
-        }
+        getSelenideElement().shouldBe(Condition.empty);
     }
 
     @Override
@@ -31,6 +20,5 @@ public class IsEmpty extends ObjectAction implements Action {
     @Override
     public void setFromExcel(ExcelActionData excelActionData) {
         setObjectActionDataFromExcel(excelActionData);
-        setEmpty(isCheckedString(excelActionData.getTestCase()));
     }
 }

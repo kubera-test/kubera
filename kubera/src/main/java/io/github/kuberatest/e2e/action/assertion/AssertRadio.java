@@ -7,6 +7,8 @@ import io.github.kuberatest.e2e.action.Action;
 import io.github.kuberatest.e2e.exception.TestFail;
 import io.github.kuberatest.e2e.locate.LocateGenerator;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 
 import java.util.Objects;
 
@@ -39,14 +41,20 @@ public class AssertRadio extends AssertCheckTypeAction implements Action {
         for (SelenideElement element : Selenide.$$(LocateGenerator.getInstance().getLocator(getLocator(), getSearchExpression()))) {
             if (element.has(Condition.checked)) {
                 if (!Objects.requireNonNull(element.getValue()).equals(checkValue)) {
-                    TestFail.fail("対象エレメントの値が一致しません。", checkValue, element.getValue());
+                    TestFail.fail(
+                            Messages.getMessage(MessageKey.FAIL_ELEMENT_VALUE_CONDITION_NOT_MATCH),
+                            checkValue,
+                            element.getValue());
                 } else {
                     return;
                 }
             }
         }
         if (!checkValue.isEmpty()) {
-            TestFail.fail("対象エレメントの値が一致しません。", checkValue, "何も選択されていない");
+            TestFail.fail(
+                    Messages.getMessage(MessageKey.FAIL_ELEMENT_VALUE_CONDITION_NOT_MATCH),
+                    checkValue,
+                    Messages.getMessage(MessageKey.PARAM_CONDITION_UNSELECTED));
         }
     }
 

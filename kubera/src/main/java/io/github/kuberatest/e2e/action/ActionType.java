@@ -5,9 +5,7 @@ import io.github.kuberatest.e2e.action.clear.*;
 import io.github.kuberatest.e2e.action.click.*;
 import io.github.kuberatest.e2e.action.input.*;
 import io.github.kuberatest.e2e.action.screenshot.TakeScreenshot;
-import io.github.kuberatest.e2e.action.status.IsEmpty;
-import io.github.kuberatest.e2e.action.status.IsEnable;
-import io.github.kuberatest.e2e.action.status.IsVisible;
+import io.github.kuberatest.e2e.action.status.*;
 
 public enum ActionType {
 
@@ -116,7 +114,9 @@ public enum ActionType {
 
     // --------------------------------------------- Status
     IS_VISIBLE("isVisible", IsVisible.class),
+    IS_INVISIBLE("isInvisible", IsInvisible.class),
     IS_ENABLE("isEnable", IsEnable.class),
+    IS_DISABLE("isDisable", IsDisable.class),
     IS_EMPTY("isEmpty", IsEmpty.class);
 
     private final String key;

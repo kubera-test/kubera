@@ -17,6 +17,7 @@ public class InputKey extends ObjectAction implements Action {
 
     @Override
     public void execute() {
+        // TODO: Enter以外のキーへの対応
         Selenide.$(getSearchExpression()).pressEnter();
     }
 

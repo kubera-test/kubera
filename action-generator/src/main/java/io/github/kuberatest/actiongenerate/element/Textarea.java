@@ -1,5 +1,7 @@
 package io.github.kuberatest.actiongenerate.element;
 
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
@@ -42,11 +44,8 @@ public class Textarea extends ElementWriterBase implements ElementWriter {
         write("isEmpty", "[テキストエリア]の値が空であることを検証する");
     }
 
-    private void writeIsVisible() {
-        write("isVisible", "[テキストエリア]の表示状態を検証する");
-    }
-
-    private void writeIsEnabled() {
-        write("isEnable", "[テキストエリア]の使用可能状態を検証する");
+    @Override
+    protected String getObjectName() {
+        return Messages.getMessage(MessageKey.OBJECT_TEXTAREA);
     }
 }

@@ -10,16 +10,16 @@ public class VisibleTest extends ActionTest {
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/status\" } }");
 
         kubera.action("{ \"actionName\": \"isVisible\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"displayTextButton\", \"visible\": \"true\" } }");
-        kubera.action("{ \"actionName\": \"isVisible\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"displayNonTextButton\", \"visible\": \"false\" } }");
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"displayTextButton\" } }");
+        kubera.action("{ \"actionName\": \"isInvisible\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"displayNonTextButton\" } }");
 
         kubera.action("{ \"actionName\": \"clickButton\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"displayTextButton\" } }");
+        kubera.action("{ \"actionName\": \"isInvisible\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"displayTextButton\" } }");
         kubera.action("{ \"actionName\": \"isVisible\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"displayTextButton\", \"visible\": \"false\" } }");
-        kubera.action("{ \"actionName\": \"isVisible\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"displayNonTextButton\", \"visible\": \"True\" } }");
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"displayNonTextButton\" } }");
     }
 
     @Test
@@ -27,12 +27,12 @@ public class VisibleTest extends ActionTest {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/status\" } }");
 
-        kubera.action("{ \"actionName\": \"isVisible\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"invisibleNonTextButton\", \"visible\": \"false\" } }");
+        kubera.action("{ \"actionName\": \"isInvisible\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"invisibleNonTextButton\" } }");
 
         kubera.action("{ \"actionName\": \"clickButton\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"visibleTextButton\" } }");
-        kubera.action("{ \"actionName\": \"isVisible\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"visibleTextButton\", \"visible\": \"false\" } }");
+        kubera.action("{ \"actionName\": \"isInvisible\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"visibleTextButton\" } }");
     }
 }

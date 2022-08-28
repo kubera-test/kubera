@@ -38,14 +38,7 @@ public class AssertText extends ObjectAction implements Action {
     @Override
     public void setFromExcel(ExcelActionData excelActionData) {
         setObjectActionDataFromExcel(excelActionData);
-        setCheckValue(convertEmptyString(excelActionData.getTestCase()));
+        setCheckValue(excelActionData.getTestCase());
     }
 
-    private String convertEmptyString(String value) {
-        List<String> emptyString = new ArrayList<>(Arrays.asList("EMPTY", "Empty", "empty", "空"));
-        if (emptyString.contains(value)) {
-            return "";
-        }
-        return value;
-    }
 }

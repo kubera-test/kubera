@@ -3,6 +3,8 @@ package io.github.kuberatest.actiongenerate.element.inputtype;
 import io.github.kuberatest.actiongenerate.element.ElementWriter;
 import io.github.kuberatest.actiongenerate.element.ElementWriterBase;
 import io.github.kuberatest.actiongenerate.element.ElementWriterIndependentOfData;
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.apache.poi.ss.usermodel.*;
 
 public class Radio extends ElementWriterBase implements ElementWriter, ElementWriterIndependentOfData {
@@ -35,11 +37,8 @@ public class Radio extends ElementWriterBase implements ElementWriter, ElementWr
         write("assertRadio", "[ラジオボタン]の値を検証する", null);
     }
 
-    private void writeIsVisible() {
-        write("isVisible", "[ラジオボタン]の表示状態を検証する");
-    }
-
-    private void writeIsEnabled() {
-        write("isEnable", "[ラジオボタン]の使用可能状態を検証する");
+    @Override
+    protected String getObjectName() {
+        return Messages.getMessage(MessageKey.OBJECT_RADIO);
     }
 }

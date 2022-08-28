@@ -6,6 +6,8 @@ import io.github.kuberatest.e2e.action.Action;
 import io.github.kuberatest.e2e.action.ObjectAction;
 import io.github.kuberatest.e2e.exception.TestFail;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
@@ -28,7 +30,10 @@ public class AssertSelectMulti extends ObjectAction implements Action {
         Arrays.sort(checkValues);
         Arrays.sort(elementValues);
         Assertions.assertArrayEquals(checkValues, elementValues,
-                TestFail.generateFailMessage("対象エレメントの値が一致しません。", Arrays.toString(checkValues), Arrays.toString(elementValues)));
+                TestFail.generateFailMessage(
+                        Messages.getMessage(MessageKey.FAIL_ELEMENT_VALUE_CONDITION_NOT_MATCH),
+                        Arrays.toString(checkValues),
+                        Arrays.toString(elementValues)));
     }
 
     @Override

@@ -8,6 +8,9 @@ import io.github.kuberatest.e2e.action.assume.IgnoreCase;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionConverter;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
 import io.github.kuberatest.e2e.exception.TestFail;
+import io.github.kuberatest.util.KuberaKey;
+import io.github.kuberatest.util.message.MessageKey;
+import io.github.kuberatest.util.message.Messages;
 import org.apache.poi.ss.usermodel.*;
 import org.junit.jupiter.params.provider.Arguments;
 
@@ -85,7 +88,7 @@ public class ExcelReader {
 
         int testCaseStartRowIndex = getTestCaseStartRowIndex(sheet);
         if (testCaseStartRowIndex == -1) {
-            TestFail.fail(String.format("テストケース内容の開始行が見つかりませんでした。\n検索した列番号[%d]", toolKeyColIndex));
+            TestFail.fail(Messages.getMessage(MessageKey.ERROR_ROW_START_NOT_FOUND, toolKeyColIndex));
         }
 
         StringBuilder jsonString = new StringBuilder().append("[");
@@ -116,8 +119,7 @@ public class ExcelReader {
         for (int rowIndex = testCaseNameRowIndex; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
             Row row = sheet.getRow(rowIndex);
             Cell keyCell = row.getCell(toolKeyColIndex);
-            // TODO: 文字列をどこかで定義
-            if (keyCell != null && keyCell.getStringCellValue().equals("TestCase")) {
+            if (keyCell != null && keyCell.getStringCellValue().equals(KuberaKey.EXCEL_TEST_CASE.getKeyName())) {
                 return rowIndex + 1;
             }
         }
@@ -127,9 +129,8 @@ public class ExcelReader {
     private String getTestCaseName(Sheet sheet, int colIndex) {
         Row testCaseNameRow = sheet.getRow(testCaseNameRowIndex);
         Cell testCaseNameKeyCell = testCaseNameRow.getCell(toolKeyColIndex);
-        // TODO: 文字列をどこかで定義
-        if (testCaseNameKeyCell == null || !testCaseNameKeyCell.getStringCellValue().equals("TestCaseName")) {
-            TestFail.fail("所定の位置にテストケース名の行が存在していません。");
+        if (testCaseNameKeyCell == null || !testCaseNameKeyCell.getStringCellValue().equals(KuberaKey.EXCEL_TEST_CASE_NAME.getKeyName())) {
+            TestFail.fail(MessageKey.ERROR_TEST_CASE_NAME_NOT_FOUND);
         }
 
         Cell testCaseNameCell = testCaseNameRow.getCell(colIndex);
@@ -174,8 +175,8 @@ public class ExcelReader {
 
         StringBuilder jsonString = new StringBuilder();
         jsonString
-                .append(String.format("{\"actionName\": \"%s\",", actionName))
-                .append(String.format("\"actionJson\": %s }", actionJson));
+                .append(String.format("{\"%s\": \"%s\",", KuberaKey.JSON_ACTION_NAME.getKeyName(), actionName))
+                .append(String.format("\"%s\": %s }", KuberaKey.JSON_ACTION_JSON.getKeyName(), actionJson));
         return jsonString.toString();
     }
 
