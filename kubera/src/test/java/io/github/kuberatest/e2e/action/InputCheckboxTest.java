@@ -43,12 +43,12 @@ public class InputCheckboxTest extends ActionTest {
                 + "\"actionJson\": { \"locator\": \"name\", \"searchExpression\": \"nameInputCheckB\" } }");
         kubera.action("{ \"actionName\": \"inputCheckbox\", "
                 + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckC\" } }");
-        kubera.action("{ \"actionName\": \"assertCheckbox\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckA\", \"checked\": \"False\" } }");
-        kubera.action("{ \"actionName\": \"assertCheckbox\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckB\", \"checked\": \"False\" } }");
-        kubera.action("{ \"actionName\": \"assertCheckbox\", "
-                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckC\", \"checked\": \"True\" } }");
+        kubera.action("{ \"actionName\": \"isUnchecked\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckA\" } }");
+        kubera.action("{ \"actionName\": \"isUnchecked\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckB\" } }");
+        kubera.action("{ \"actionName\": \"isChecked\", "
+                + "\"actionJson\": { \"locator\": \"id\", \"searchExpression\": \"idInputCheckC\" } }");
 
     }
 

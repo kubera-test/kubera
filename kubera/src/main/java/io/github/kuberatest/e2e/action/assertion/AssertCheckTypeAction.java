@@ -20,21 +20,26 @@ public abstract class AssertCheckTypeAction extends ObjectAction {
     }
 
     protected void isChecked() {
-        if (getElementChecked()) {
-            if (!checked) {
-                TestFail.fail(
-                        Messages.getMessage(MessageKey.FAIL_ELEMENT_CHECK_CONDITION_NOT_MATCH),
-                        Messages.getMessage(MessageKey.PARAM_CONDITION_UNCHECKED),
-                        Messages.getMessage(MessageKey.PARAM_CONDITION_CHECKED));
-            }
+        if(checked) {
+            getSelenideElement().shouldBe(Condition.checked);
         } else {
-            if (checked) {
-                TestFail.fail(
-                        Messages.getMessage(MessageKey.FAIL_ELEMENT_CHECK_CONDITION_NOT_MATCH),
-                        Messages.getMessage(MessageKey.PARAM_CONDITION_CHECKED),
-                        Messages.getMessage(MessageKey.PARAM_CONDITION_UNCHECKED));
-            }
+            getSelenideElement().shouldNotBe(Condition.checked);
         }
+//        if (getElementChecked()) {
+//            if (!checked) {
+//                TestFail.fail(
+//                        Messages.getMessage(MessageKey.FAIL_ELEMENT_CHECK_CONDITION_NOT_MATCH),
+//                        Messages.getMessage(MessageKey.PARAM_CONDITION_UNCHECKED),
+//                        Messages.getMessage(MessageKey.PARAM_CONDITION_CHECKED));
+//            }
+//        } else {
+//            if (checked) {
+//                TestFail.fail(
+//                        Messages.getMessage(MessageKey.FAIL_ELEMENT_CHECK_CONDITION_NOT_MATCH),
+//                        Messages.getMessage(MessageKey.PARAM_CONDITION_CHECKED),
+//                        Messages.getMessage(MessageKey.PARAM_CONDITION_UNCHECKED));
+//            }
+//        }
     }
 
     private boolean getElementChecked() {

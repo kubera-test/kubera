@@ -113,6 +113,8 @@ public enum ActionType {
     TAKE_SCREENSHOT("takeScreenshot", TakeScreenshot.class),
 
     // --------------------------------------------- Status
+    IS_CHECKED("isChecked", IsChecked.class),
+    IS_UNCHECKED("isUnchecked", IsUnchecked.class),
     IS_VISIBLE("isVisible", IsVisible.class),
     IS_INVISIBLE("isInvisible", IsInvisible.class),
     IS_ENABLE("isEnable", IsEnable.class),
