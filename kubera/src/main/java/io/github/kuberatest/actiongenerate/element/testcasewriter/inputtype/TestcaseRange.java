@@ -13,10 +13,8 @@ public class TestcaseRange extends TestcaseWriterBase implements TestcaseWriter 
 
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_RANGE);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_RANGE);
         writeTestcase(elementName);
-
         return activeRow;
     }
 

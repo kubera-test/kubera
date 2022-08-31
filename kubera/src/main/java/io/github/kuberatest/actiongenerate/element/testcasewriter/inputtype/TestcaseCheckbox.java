@@ -9,10 +9,8 @@ import io.github.kuberatest.util.excelform.ExcelForms;
 public class TestcaseCheckbox extends TestcaseWriterBase implements TestcaseWriter {
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_CHECKBOX);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_CHECKBOX);
         writeTestcase(elementName);
-
         return activeRow;
     }
 

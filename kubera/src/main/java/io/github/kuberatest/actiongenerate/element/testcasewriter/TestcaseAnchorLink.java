@@ -12,10 +12,8 @@ import java.util.stream.Stream;
 public class TestcaseAnchorLink extends TestcaseWriterBase implements TestcaseWriter {
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_ANCHOR_LINK);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_ANCHOR_LINK);
         writeTestcase(elementName);
-
         return activeRow;
     }
 
@@ -23,5 +21,16 @@ public class TestcaseAnchorLink extends TestcaseWriterBase implements TestcaseWr
         writeClick(ActionType.CLICK_LINK, elementName);
         writeIsVisible(elementName);
         writeIsEnabled(elementName);
+    }
+
+    protected String getElementLabel(ExcelKey defaultObjectKey) {
+        String elementName = ExcelForms.getMessage(defaultObjectKey);
+
+        String buttonLabel = webElement.getText();
+        if (buttonLabel == null || buttonLabel.trim().length() == 0) {
+            return elementName;
+        } else {
+            return buttonLabel;
+        }
     }
 }

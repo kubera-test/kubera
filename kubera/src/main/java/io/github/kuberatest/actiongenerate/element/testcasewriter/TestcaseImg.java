@@ -10,9 +10,7 @@ public class TestcaseImg extends TestcaseWriterBase implements TestcaseWriter {
     @Override
     public int writeExcel() {
         String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_IMAGE);
-
         writeTestcase(elementName);
-
         return activeRow;
     }
 

@@ -9,10 +9,8 @@ import io.github.kuberatest.util.excelform.ExcelForms;
 public class TestcaseInputButton extends TestcaseWriterBase implements TestcaseWriter {
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_INPUT_BUTTON);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_INPUT_BUTTON);
         writeTestcase(elementName);
-
         return activeRow;
     }
 
@@ -20,5 +18,17 @@ public class TestcaseInputButton extends TestcaseWriterBase implements TestcaseW
         writeClick(ActionType.CLICK_INPUT_BUTTON, elementName);
         writeIsVisible(elementName);
         writeIsEnabled(elementName);
+    }
+
+    @Override
+    protected String getElementLabel(ExcelKey defaultObjectKey) {
+        String elementName = ExcelForms.getMessage(defaultObjectKey);
+
+        String buttonLabel = webElement.getAttribute("value");
+        if (buttonLabel == null || buttonLabel.trim().length() == 0) {
+            return elementName;
+        } else {
+            return buttonLabel;
+        }
     }
 }

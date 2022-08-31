@@ -9,10 +9,8 @@ import org.apache.poi.ss.usermodel.*;
 public class TestcaseSelect extends TestcaseWriterBase implements TestcaseWriter {
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_SELECT);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_SELECT);
         writeTestcase(elementName);
-
         return activeRow;
     }
 

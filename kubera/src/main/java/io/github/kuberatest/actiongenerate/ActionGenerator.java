@@ -64,7 +64,7 @@ public class ActionGenerator {
         for (WebElement element: elements) {
             TestcaseWriter input = TestcaseWriterFactory.getInstance().createElementWriter(type)
                     .setExcelInfo(workbook, sheet, activeRow)
-                    .setSeleniumInfo(element)
+                    .setSeleniumInfo(webDriver, element)
                     .setObjectInfo(type.getElementWriterInstance().getElementAttribute(element, type), arrayCountUp(arrayObjects, element, type));
             activeRow = input.writeExcel();
        }

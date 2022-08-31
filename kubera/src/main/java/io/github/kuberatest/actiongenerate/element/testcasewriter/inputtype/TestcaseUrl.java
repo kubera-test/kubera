@@ -13,10 +13,8 @@ public class TestcaseUrl extends TestcaseWriterBase implements TestcaseWriter {
 
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_URL);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_URL);
         writeTestcase(elementName);
-
         return activeRow;
     }
 

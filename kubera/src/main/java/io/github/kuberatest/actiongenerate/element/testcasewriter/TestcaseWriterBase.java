@@ -4,6 +4,9 @@ import io.github.kuberatest.e2e.action.ActionType;
 import io.github.kuberatest.util.excelform.ExcelForms;
 import io.github.kuberatest.util.excelform.ExcelKey;
 import org.apache.poi.ss.usermodel.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public abstract class TestcaseWriterBase implements TestcaseWriter {
@@ -11,6 +14,7 @@ public abstract class TestcaseWriterBase implements TestcaseWriter {
     protected  Workbook workbook;
     protected Sheet sheet;
     protected int activeRow;
+    protected WebDriver webDriver;
     protected WebElement webElement;
     protected String[] attribute;
     protected Integer arrayCount;
@@ -24,7 +28,8 @@ public abstract class TestcaseWriterBase implements TestcaseWriter {
     }
 
     @Override
-    public TestcaseWriter setSeleniumInfo(WebElement webElement) {
+    public TestcaseWriter setSeleniumInfo(WebDriver webDriver, WebElement webElement) {
+        this.webDriver = webDriver;
         this.webElement = webElement;
         return this;
     }
@@ -104,4 +109,20 @@ public abstract class TestcaseWriterBase implements TestcaseWriter {
         }
         activeRow++;
     }
+
+    protected String getElementLabel(ExcelKey defaultObjectKey) {
+        String elementName = ExcelForms.getMessage(defaultObjectKey);
+
+        String elementId = webElement.getAttribute("id");
+        if (elementId == null || elementId.trim().length() == 0) {
+            return elementName;
+        }
+
+        try {
+            return webDriver.findElement(By.cssSelector(String.format("label[for='%s']", elementId))).getText();
+        } catch (NoSuchElementException e) {
+            return elementName;
+        }
+    }
+
 }

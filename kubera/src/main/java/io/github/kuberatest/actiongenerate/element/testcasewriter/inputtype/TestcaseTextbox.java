@@ -2,20 +2,15 @@ package io.github.kuberatest.actiongenerate.element.testcasewriter.inputtype;
 
 import io.github.kuberatest.actiongenerate.element.testcasewriter.TestcaseWriter;
 import io.github.kuberatest.actiongenerate.element.testcasewriter.TestcaseWriterBase;
-import io.github.kuberatest.actiongenerate.element.elementwriter.ElementWriter;
 import io.github.kuberatest.e2e.action.ActionType;
 import io.github.kuberatest.util.excelform.ExcelKey;
-import io.github.kuberatest.util.excelform.ExcelForms;
-import org.apache.poi.ss.usermodel.*;
 
 public class TestcaseTextbox extends TestcaseWriterBase implements TestcaseWriter {
 
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_TEXTBOX);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_TEXTBOX);
         writeTestcase(elementName);
-
         return activeRow;
     }
 
@@ -27,4 +22,5 @@ public class TestcaseTextbox extends TestcaseWriterBase implements TestcaseWrite
         writeIsVisible(elementName);
         writeIsEnabled(elementName);
     }
+
 }

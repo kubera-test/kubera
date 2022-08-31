@@ -10,10 +10,8 @@ public class TestcaseColor extends TestcaseWriterBase implements TestcaseWriter 
 
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_COLOR);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_COLOR);
         writeTestcase(elementName);
-
         return activeRow;
     }
 

@@ -10,10 +10,8 @@ public class TestcaseDate extends TestcaseWriterBase implements TestcaseWriter {
 
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_DATE);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_DATE);
         writeTestcase(elementName);
-
         return activeRow;
     }
 

@@ -10,9 +10,7 @@ public class TestcaseInputResetButton extends TestcaseWriterBase implements Test
     @Override
     public int writeExcel() {
         String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_INPUT_RESET_BUTTON);
-
         writeTestcase(elementName);
-
         return activeRow;
     }
 
