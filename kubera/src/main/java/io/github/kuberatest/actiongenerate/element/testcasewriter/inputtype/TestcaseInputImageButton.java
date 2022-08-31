@@ -10,9 +10,7 @@ public class TestcaseInputImageButton extends TestcaseWriterBase implements Test
     @Override
     public int writeExcel() {
         String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_INPUT_IMAGE_BUTTON);
-
         writeTestcase(elementName);
-
         return activeRow;
     }
 

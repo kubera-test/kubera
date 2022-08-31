@@ -11,10 +11,8 @@ import org.apache.poi.ss.usermodel.*;
 public class TestcaseRadio extends TestcaseWriterBase implements TestcaseWriter {
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_RADIO);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_RADIO);
         writeTestcase(elementName);
-
         return activeRow;
     }
 

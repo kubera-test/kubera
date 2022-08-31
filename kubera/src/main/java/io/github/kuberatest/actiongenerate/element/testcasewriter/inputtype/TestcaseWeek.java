@@ -13,10 +13,8 @@ public class TestcaseWeek extends TestcaseWriterBase implements TestcaseWriter {
 
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_WEEK);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_WEEK);
         writeTestcase(elementName);
-
         return activeRow;
     }
 

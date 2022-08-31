@@ -3,7 +3,7 @@
     <b-card>
       <b-row>
         <b-col sm="3">
-          <label>Type:Text</label>
+          <label for="idInputText">Type:Text</label>
         </b-col>
         <b-col sm="9">
           <b-form-input id="idInputText" name="nameInputText" class="classInputText"></b-form-input>
@@ -53,7 +53,7 @@
       </b-row>
       <b-row>
         <b-col sm="3">
-          <label>Type:Select(Multiple)</label>
+          <label for="idInputSelectMulti">Type:Select(Multiple)</label>
         </b-col>
         <b-col sm="9">
           <b-form-select id="idInputSelectMulti" name="nameInputSelectMulti" class="classInputSelectMulti" multiple>

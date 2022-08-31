@@ -10,10 +10,8 @@ public class TestcaseDatetimeLocal extends TestcaseWriterBase implements Testcas
 
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_DATETIME_LOCAL);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_DATETIME_LOCAL);
         writeTestcase(elementName);
-
         return activeRow;
     }
 

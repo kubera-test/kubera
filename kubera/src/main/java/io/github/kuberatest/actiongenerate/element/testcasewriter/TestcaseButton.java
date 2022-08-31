@@ -9,10 +9,8 @@ import org.apache.poi.ss.usermodel.*;
 public class TestcaseButton extends TestcaseWriterBase implements TestcaseWriter {
     @Override
     public int writeExcel() {
-        String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_BUTTON);
-
+        String elementName = getElementLabel(ExcelKey.OBJECT_BUTTON);
         writeTestcase(elementName);
-
         return activeRow;
     }
 
@@ -20,5 +18,16 @@ public class TestcaseButton extends TestcaseWriterBase implements TestcaseWriter
         writeClick(ActionType.CLICK_BUTTON, elementName);
         writeIsVisible(elementName);
         writeIsEnabled(elementName);
+    }
+
+    protected String getElementLabel(ExcelKey defaultObjectKey) {
+        String elementName = ExcelForms.getMessage(defaultObjectKey);
+
+        String buttonLabel = webElement.getText();
+        if (buttonLabel == null || buttonLabel.trim().length() == 0) {
+            return elementName;
+        } else {
+            return buttonLabel;
+        }
     }
 }

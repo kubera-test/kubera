@@ -13,9 +13,7 @@ public class TestcaseInputSubmitButton extends TestcaseWriterBase implements Tes
     @Override
     public int writeExcel() {
         String elementName = ExcelForms.getMessage(ExcelKey.OBJECT_INPUT_SUBMIT_BUTTON);
-
         writeTestcase(elementName);
-
         return activeRow;
     }
 
