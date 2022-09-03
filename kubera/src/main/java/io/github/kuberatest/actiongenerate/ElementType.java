@@ -5,7 +5,6 @@ import io.github.kuberatest.actiongenerate.writer.stylewriter.element.inputtype.
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.element.*;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.element.inputtype.*;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.*;
-import io.github.kuberatest.actiongenerate.writer.testcasewriter.element.inputtype.TestcaseNumber;
 
 public enum ElementType {
 

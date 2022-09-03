@@ -20,13 +20,7 @@ public class ExcelActionConverter extends ActionManager {
         try {
             action = actionClassDefinitions.get(excelActionData.getActionKey()).getDeclaredConstructor().newInstance();
         // TODO: 例外の実装
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchMethodException e) {
+        } catch (InvocationTargetException | InstantiationException | IllegalAccessException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
 

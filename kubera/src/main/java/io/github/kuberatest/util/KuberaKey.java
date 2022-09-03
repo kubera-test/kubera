@@ -20,7 +20,7 @@ public enum KuberaKey {
     LOCATOR_TAG_NAME("tag_name"),
     LOCATOR_CLASS_NAME("class_name");
 
-    private String keyName;
+    private final String keyName;
 
     public String getKeyName() {
         return keyName;

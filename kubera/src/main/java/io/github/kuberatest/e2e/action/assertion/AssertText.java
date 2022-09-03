@@ -5,10 +5,6 @@ import io.github.kuberatest.e2e.action.Action;
 import io.github.kuberatest.e2e.action.ObjectAction;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class AssertText extends ObjectAction implements Action {
 
     private String checkValue;

@@ -19,7 +19,7 @@ public final class LocateGenerator {
         return instance;
     }
 
-    protected LocateGenerator() {
+    private LocateGenerator() {
         locatorClassDefinitions.put(KuberaKey.LOCATOR_ID.getKeyName(), new IdLocator());
         locatorClassDefinitions.put(KuberaKey.LOCATOR_NAME.getKeyName(), new NameLocator());
         locatorClassDefinitions.put(KuberaKey.LOCATOR_CSS_SELECTOR.getKeyName(), new CssSelectorLocator());
