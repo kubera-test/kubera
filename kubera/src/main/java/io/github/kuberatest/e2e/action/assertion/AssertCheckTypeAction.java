@@ -24,10 +24,6 @@ public abstract class AssertCheckTypeAction extends ObjectAction {
         }
     }
 
-    private boolean getElementChecked() {
-        return getSelenideElement().has(Condition.checked);
-    }
-
     public void setAssertCheckTypeActionDataFromExcel(ExcelActionData excelActionData) {
         setObjectActionDataFromExcel(excelActionData);
         setChecked(isCheckedString(excelActionData.getTestCase()));
