@@ -1,7 +1,10 @@
 package io.github.kuberatest.actiongenerate;
 
-import io.github.kuberatest.actiongenerate.element.testcasewriter.TestcaseWriterFactory;
-import io.github.kuberatest.actiongenerate.element.testcasewriter.TestcaseWriter;
+import io.github.kuberatest.actiongenerate.writer.stylewriter.BeforeAction;
+import io.github.kuberatest.actiongenerate.writer.stylewriter.NormalAction;
+import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseActionWriter;
+import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseWriterFactory;
+import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseElementWriter;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -50,10 +53,38 @@ public class ActionGenerator {
     public void capture(Workbook workbook, String sheetName) {
         stdout("画面の情報を読み込んでいます。操作せずにそのままお待ちください。");
         Sheet sheet = makeExcelSheet(workbook, sheetName);
+        writeExcelBeforeAction(sheet);
+        writeExcelFromElement(sheet);
+        writeExcelAction(sheet);
+        stdout("画面の情報を読み込みました。");
+    }
+
+    public void writeExcelBeforeAction(Sheet sheet) {
+        BeforeAction beforeAction = new BeforeAction();
+        activeRow = beforeAction.writeElementHeader(workbook, sheet, activeRow);
+
+        for (BeforeActionType type: BeforeActionType.values()) {
+            TestcaseActionWriter actionWriter = TestcaseWriterFactory.getInstance().createBeforeActionWriter(type);
+            actionWriter.setExcelInfo(workbook, sheet, activeRow);
+            activeRow = actionWriter.writeExcel();
+        }
+    }
+
+    public void writeExcelFromElement(Sheet sheet) {
         for (ElementType type: ElementType.values()) {
             captureElement(sheet, type);
         }
-        stdout("画面の情報を読み込みました。");
+    }
+
+    public void writeExcelAction(Sheet sheet) {
+        NormalAction normalAction = new NormalAction();
+        activeRow = normalAction.writeElementHeader(workbook, sheet, activeRow);
+
+        for (NormalActionType type: NormalActionType.values()) {
+            TestcaseActionWriter actionWriter = TestcaseWriterFactory.getInstance().createActionWriter(type);
+            actionWriter.setExcelInfo(workbook, sheet, activeRow);
+            activeRow = actionWriter.writeExcel();
+        }
     }
 
     public void captureElement(Sheet sheet, ElementType type) {
@@ -62,11 +93,11 @@ public class ActionGenerator {
 
         Map<String, Integer> arrayObjects = findElementDuplicates(elements, type).stream().collect(Collectors.toMap(t -> t, t -> 1));
         for (WebElement element: elements) {
-            TestcaseWriter input = TestcaseWriterFactory.getInstance().createElementWriter(type)
-                    .setExcelInfo(workbook, sheet, activeRow)
-                    .setSeleniumInfo(webDriver, element)
-                    .setObjectInfo(type.getElementWriterInstance().getElementAttribute(element, type), arrayCountUp(arrayObjects, element, type));
-            activeRow = input.writeExcel();
+            TestcaseElementWriter elementWriter = TestcaseWriterFactory.getInstance().createElementWriter(type);
+            elementWriter.setExcelInfo(workbook, sheet, activeRow);
+            elementWriter.setSeleniumInfo(webDriver, element);
+            elementWriter.setObjectInfo(type.getElementWriterInstance().getElementAttribute(element, type), arrayCountUp(arrayObjects, element, type));
+            activeRow = elementWriter.writeExcel();
        }
     }
 
