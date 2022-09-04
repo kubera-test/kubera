@@ -14,6 +14,14 @@ public class TestcaseProperties {
         return KuberaProperties.getProperty("browser").equalsIgnoreCase("chrome");
     }
 
+    public boolean isFirefox() {
+        return KuberaProperties.getProperty("browser").equalsIgnoreCase("firefox");
+    }
+
+    public boolean isEdge() {
+        return KuberaProperties.getProperty("browser").equalsIgnoreCase("edge");
+    }
+
     public boolean isHeadless() {
         return KuberaProperties.getProperty("webdriver.headless").equalsIgnoreCase("true");
     }
