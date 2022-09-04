@@ -1,10 +1,10 @@
 package io.github.kuberatest.actiongenerate;
 
-import io.github.kuberatest.actiongenerate.element.elementwriter.*;
-import io.github.kuberatest.actiongenerate.element.elementwriter.inputtype.*;
-import io.github.kuberatest.actiongenerate.element.testcasewriter.inputtype.*;
-import io.github.kuberatest.actiongenerate.element.testcasewriter.*;
-import io.github.kuberatest.actiongenerate.element.testcasewriter.inputtype.TestcaseNumber;
+import io.github.kuberatest.actiongenerate.writer.stylewriter.element.*;
+import io.github.kuberatest.actiongenerate.writer.stylewriter.element.inputtype.*;
+import io.github.kuberatest.actiongenerate.writer.testcasewriter.element.*;
+import io.github.kuberatest.actiongenerate.writer.testcasewriter.element.inputtype.*;
+import io.github.kuberatest.actiongenerate.writer.testcasewriter.*;
 
 public enum ElementType {
 
@@ -37,10 +37,10 @@ public enum ElementType {
     IMG(new ElementImg(), TestcaseImg.class, "img");
 
     private final ElementWriter elementWriter;
-    private final Class<? extends TestcaseWriter> classLiteral;
+    private final Class<? extends TestcaseElementWriter> classLiteral;
     private final String cssSelector;
 
-    ElementType(ElementWriter elementWriter, Class<? extends TestcaseWriter> classLiteral, String cssSelector) {
+    ElementType(ElementWriter elementWriter, Class<? extends TestcaseElementWriter> classLiteral, String cssSelector) {
         this.elementWriter = elementWriter;
         this.classLiteral = classLiteral;
         this.cssSelector = cssSelector;
@@ -50,7 +50,7 @@ public enum ElementType {
         return elementWriter;
     }
 
-    public Class<? extends TestcaseWriter> getClassLiteral() {
+    public Class<? extends TestcaseElementWriter> getClassLiteral() {
         return classLiteral;
     }
 

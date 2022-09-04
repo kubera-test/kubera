@@ -10,6 +10,7 @@ public class ActionTest {
     @BeforeEach
     public void setUp() {
         kubera = new Kubera();
+        kubera.initialize();
     }
 
     @AfterEach

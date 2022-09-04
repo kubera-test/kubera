@@ -27,7 +27,7 @@ public class ExcelReader {
     private final int testIgnoreRowIndex = testCaseNameRowIndex + 1;
     private final int toolKeyColIndex = 0;
     private final int testCaseStartColIndex = toolKeyColIndex + 5;
-    private Workbook workbook;
+    private final Workbook workbook;
 
     public ExcelReader(InputStream excelFileInputStream) {
         try {
@@ -173,11 +173,8 @@ public class ExcelReader {
             throw new RuntimeException(e);
         }
 
-        StringBuilder jsonString = new StringBuilder();
-        jsonString
-                .append(String.format("{\"%s\": \"%s\",", KuberaKey.JSON_ACTION_NAME.getKeyName(), actionName))
-                .append(String.format("\"%s\": %s }", KuberaKey.JSON_ACTION_JSON.getKeyName(), actionJson));
-        return jsonString.toString();
+        return String.format("{\"%s\": \"%s\",", KuberaKey.JSON_ACTION_NAME.getKeyName(), actionName) +
+                String.format("\"%s\": %s }", KuberaKey.JSON_ACTION_JSON.getKeyName(), actionJson);
     }
 
     private int getTestCaseSize(Sheet sheet) {

@@ -4,7 +4,6 @@ package io.github.kuberatest.e2e.action;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.kuberatest.e2e.Kubera;
 import io.github.kuberatest.util.KuberaKey;
 
 public class ActionExecuter extends ActionManager {
