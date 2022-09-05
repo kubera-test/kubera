@@ -20,6 +20,14 @@
       </b-row>
       <b-row>
         <b-col sm="3">
+          <label>Type:Download Link</label>
+        </b-col>
+        <b-col sm="9" class="align-left">
+          <a href="/downloadtest.json" download="Download.json">ダウンロードリンク</a>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
           <label>Type:Image</label>
         </b-col>
         <b-col sm="9" class="align-left">
