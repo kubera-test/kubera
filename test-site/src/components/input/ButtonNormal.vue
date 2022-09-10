@@ -28,6 +28,14 @@
       </b-row>
       <b-row>
         <b-col sm="3">
+          <label>Type:NewPage Link</label>
+        </b-col>
+        <b-col sm="9" class="align-left">
+          <a href="/index2.html" target="_blank">別画面を表示</a>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="3">
           <label>Type:Image</label>
         </b-col>
         <b-col sm="9" class="align-left">

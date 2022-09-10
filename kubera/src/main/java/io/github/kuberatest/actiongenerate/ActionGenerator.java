@@ -99,6 +99,7 @@ public class ActionGenerator {
 
         for (BeforeActionType type: BeforeActionType.values()) {
             TestcaseActionWriter actionWriter = TestcaseWriterFactory.getInstance().createBeforeActionWriter(type);
+            actionWriter.setSeleniumInfo(webDriver);
             actionWriter.setExcelInfo(workbook, sheet, activeRow);
             activeRow = actionWriter.writeExcel();
         }
@@ -116,6 +117,7 @@ public class ActionGenerator {
 
         for (NormalActionType type: NormalActionType.values()) {
             TestcaseActionWriter actionWriter = TestcaseWriterFactory.getInstance().createActionWriter(type);
+            actionWriter.setSeleniumInfo(webDriver);
             actionWriter.setExcelInfo(workbook, sheet, activeRow);
             activeRow = actionWriter.writeExcel();
         }
