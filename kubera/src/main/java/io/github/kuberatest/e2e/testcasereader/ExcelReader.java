@@ -5,9 +5,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.kuberatest.e2e.action.Action;
 import io.github.kuberatest.e2e.action.assume.IgnoreCase;
+import io.github.kuberatest.e2e.testcasereader.excel.A1R1C1Converter;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionConverter;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
 import io.github.kuberatest.e2e.exception.TestFail;
+import io.github.kuberatest.e2e.testcasereader.excel.ExcelSettings;
 import io.github.kuberatest.util.KuberaKey;
 import io.github.kuberatest.util.message.MessageKey;
 import io.github.kuberatest.util.message.Messages;
@@ -23,10 +25,10 @@ import java.util.stream.Stream;
 
 public class ExcelReader {
 
-    private final int testCaseNameRowIndex = 0;
-    private final int testIgnoreRowIndex = testCaseNameRowIndex + 1;
-    private final int toolKeyColIndex = 0;
-    private final int testCaseStartColIndex = toolKeyColIndex + 5;
+    private int testCaseNameRowIndex = 0;
+    private int testIgnoreRowIndex = 1;
+    private int toolKeyColIndex = 0;
+    private int testCaseStartColIndex = 5;
     private final Workbook workbook;
 
     public ExcelReader(InputStream excelFileInputStream) {
@@ -36,10 +38,42 @@ public class ExcelReader {
             // TODO: 共通的なエラー処理を後で入れる
             throw new RuntimeException(e);
         }
+        setUserSettings();
     }
 
     public Workbook getWorkbook() {
         return workbook;
+    }
+
+    private void setUserSettings() {
+        Sheet sheet = getSettingsSheet();
+        if (sheet == null) {
+            return;
+        }
+
+        overwriteFromSettings(sheet);
+    }
+
+    private Sheet getSettingsSheet() {
+        return workbook.getSheet("Settings");
+    }
+
+    private void overwriteFromSettings(Sheet sheet) {
+        setTestcaseStartPosition(sheet);
+    }
+
+    private String getSettingsCellValue(Sheet sheet, String cellPosition) {
+        Row row = sheet.getRow(A1R1C1Converter.row(cellPosition));
+        Cell cell = row.getCell(A1R1C1Converter.column(cellPosition));
+        return cell.getStringCellValue();
+    }
+
+    private void setTestcaseStartPosition(Sheet sheet) {
+        String startCellPosition = getSettingsCellValue(sheet, ExcelSettings.TESTCASE_START_CELL.getCellPosition());
+        this.testCaseNameRowIndex = A1R1C1Converter.row(startCellPosition);
+        this.testIgnoreRowIndex = testCaseNameRowIndex + 1;
+        this.toolKeyColIndex = A1R1C1Converter.column(startCellPosition);
+        this.testCaseStartColIndex = toolKeyColIndex + 5;
     }
 
     public Stream<Arguments> readExcelFileToArgumentsStream() {
@@ -51,9 +85,15 @@ public class ExcelReader {
         List<Arguments> arguments = new ArrayList<>();
         while (sheetIterator.hasNext()) {
             Sheet sheet = sheetIterator.next();
-            arguments.addAll(getTestCaseArgumentsStreamFromSheet(sheet));
+            if (!isSettingsSheet(sheet)) {
+                arguments.addAll(getTestCaseArgumentsStreamFromSheet(sheet));
+            }
         }
         return arguments.stream();
+    }
+
+    private boolean isSettingsSheet(Sheet sheet) {
+        return sheet.getSheetName().equals("Settings");
     }
 
     private List<Arguments> getTestCaseArgumentsStreamFromSheet(Sheet sheet) {
@@ -182,10 +222,7 @@ public class ExcelReader {
     }
 
     private boolean isCellEmpty(Cell cell) {
-        if (cell == null || cell.getCellType().equals(CellType.BLANK)) {
-            return true;
-        }
-        return false;
+        return cell == null || cell.getCellType().equals(CellType.BLANK);
     }
 
     private String getCellString(Row row, int colIndex) {

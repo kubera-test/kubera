@@ -1,5 +1,6 @@
 package io.github.kuberatest.actiongenerate;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.BeforeAction;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.NormalAction;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseActionWriter;
@@ -168,6 +169,7 @@ public class ActionGenerator {
         System.out.println(message);
     }
     public void init() {
+        WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         sheetCount = 1;
     }
