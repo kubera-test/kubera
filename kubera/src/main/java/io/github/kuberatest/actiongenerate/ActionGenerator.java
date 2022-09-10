@@ -19,6 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class ActionGenerator {
@@ -27,6 +28,7 @@ public class ActionGenerator {
     private Workbook workbook;
     private int sheetCount;
     private int activeRow;
+    private String targetWindowHandle;
 
     public void execute(String url) {
         init();
@@ -43,12 +45,43 @@ public class ActionGenerator {
         openPage(url);
         displayUsage();
         workbook = makeExcelFile();
-        String inputString = waitKeyPress();
+        String inputString = waitInputSheetName();
         while (!isExit(inputString)) {
+            if (isMultiplePages()) {
+                selectPage();
+            } else {
+                targetWindowHandle = webDriver.getWindowHandle();
+            }
             capture(workbook, inputString);
-            inputString = waitKeyPress();
+            inputString = waitInputSheetName();
         }
         workbook.write(new FileOutputStream("test.xlsx"));
+    }
+
+    private void selectPage() throws IOException {
+        stdout("ウィンドウまたはタブが複数開かれています。取り込み対象のページ番号を入力してください。");
+
+        AtomicInteger pageCount = new AtomicInteger(1);
+        AtomicInteger defaultPage = new AtomicInteger(0);
+        List<String> windowHandles = new ArrayList<>(webDriver.getWindowHandles());
+        windowHandles.forEach(windowHandle -> {
+            webDriver.switchTo().window(windowHandle);
+            if (windowHandle.equals(targetWindowHandle)) {
+                defaultPage.set(pageCount.get());
+                stdout(String.format("[%d]:%s", pageCount.get(), webDriver.getTitle()));
+            } else {
+                stdout(String.format(" %d :%s", pageCount.get(), webDriver.getTitle()));
+            }
+            pageCount.getAndIncrement();
+        });
+
+        int targetPage = waitInputPageCount(defaultPage.get(), windowHandles.size());
+        targetWindowHandle = windowHandles.get(targetPage - 1);
+        webDriver.switchTo().window(targetWindowHandle);
+    }
+
+    private boolean isMultiplePages() {
+        return webDriver.getWindowHandles().size() > 1;
     }
 
     public void capture(Workbook workbook, String sheetName) {
@@ -138,13 +171,14 @@ public class ActionGenerator {
 
     public void openPage(String url) {
         webDriver.get(url);
+        targetWindowHandle = webDriver.getWindowHandle();
     }
 
     private boolean isExit(String input) {
         return input.equals("exit");
     }
 
-    public String waitKeyPress() throws IOException {
+    public String waitInputSheetName() throws IOException {
 //        Scanner scanner = new Scanner(System.in);
         stdout(String.format("シート名を入力してEnterを押してください[%d]:", sheetCount));
 //        return scanner.nextLine();
@@ -155,6 +189,28 @@ public class ActionGenerator {
         }
         sheetCount++;
         return sheetName;
+    }
+
+    private int waitInputPageCount(int defaultPage, int maxSize) throws IOException {
+        BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+        String pageCount = stdin.readLine();
+        while(true) {
+            if (defaultPage != 0 && pageCount.trim().length() == 0) {
+                return defaultPage;
+            }
+
+            if (!pageCount.matches("[0-9]+")) {
+                stdout("数字を入力してください。");
+
+            } else if (Integer.parseInt(pageCount) > maxSize) {
+                stdout(String.format("1～%dの数字を入力してください。", maxSize));
+
+            } else {
+                break;
+            }
+            pageCount = stdin.readLine();
+        }
+        return Integer.parseInt(pageCount);
     }
 
     private void displayUsage() {
