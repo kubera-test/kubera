@@ -3,6 +3,7 @@ package io.github.kuberatest.actiongenerate;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.BeforeAction;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.NormalAction;
+import io.github.kuberatest.actiongenerate.writer.stylewriter.PageTitle;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseActionWriter;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseWriterFactory;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseElementWriter;
@@ -106,6 +107,8 @@ public class ActionGenerator {
     }
 
     public void writeExcelFromElement(Sheet sheet) {
+        writePageTitle(sheet);
+
         for (ElementType type: ElementType.values()) {
             captureElement(sheet, type);
         }
@@ -121,6 +124,12 @@ public class ActionGenerator {
             actionWriter.setExcelInfo(workbook, sheet, activeRow);
             activeRow = actionWriter.writeExcel();
         }
+    }
+
+    private void writePageTitle(Sheet sheet) {
+        PageTitle pageTitle = new PageTitle();
+        pageTitle.setWindowTitle(webDriver.getTitle());
+        activeRow = pageTitle.writeElementHeader(workbook, sheet, activeRow);
     }
 
     public void captureElement(Sheet sheet, ElementType type) {
