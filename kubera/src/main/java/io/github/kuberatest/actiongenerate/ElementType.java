@@ -34,7 +34,13 @@ public enum ElementType {
     TEXTAREA(new ElementTextarea(), TestcaseTextarea.class, "textarea"),
     BUTTON(new ElementButton(), TestcaseButton.class, "button"),
     ANCHOR_LINK(new ElementAnchorLink(), TestcaseAnchorLink.class, "a"),
-    IMG(new ElementImg(), TestcaseImg.class, "img");
+    IMG(new ElementImg(), TestcaseImg.class, "img"),
+
+    DIV(new ElementDiv(), TestcaseDiv.class, "div[id]"),
+    SPAN(new ElementSpan(), TestcaseSpan.class, "span[id]"),
+    HEADING(new ElementHeading(), TestcaseHeading.class, "h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]"),
+    PARAGRAPH(new ElementParagraph(), TestcaseParagraph.class, "p[id]"),
+    ;
 
     private final ElementWriter elementWriter;
     private final Class<? extends TestcaseElementWriter> classLiteral;

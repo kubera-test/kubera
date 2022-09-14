@@ -12,11 +12,11 @@ public abstract class ElementWriterBase extends StyleWriterBase implements Eleme
     @Override
     public String[] getElementAttribute(WebElement element, ElementType elementType) {
         String attrName = element.getAttribute("name");
-        if (attrName.trim().length() != 0) {
+        if (attrName != null && attrName.trim().length() != 0) {
             return Stream.of(KuberaKey.LOCATOR_NAME.getKeyName(), attrName).toArray(String[]::new);
         }
         String attrId = element.getAttribute("id");
-        if (attrId.trim().length() != 0) {
+        if (attrId != null && attrId.trim().length() != 0) {
             return Stream.of(KuberaKey.LOCATOR_ID.getKeyName(), attrId).toArray(String[]::new);
         }
         return Stream.of(KuberaKey.LOCATOR_CSS_SELECTOR.getKeyName(), String.format(elementType.getCssSelector())).toArray(String[]::new);

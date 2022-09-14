@@ -5,6 +5,7 @@
       <ButtonNormal />
       <InputArray />
       <ButtonArray />
+      <htmlNormal />
     </b-container>
   </div>
 </template>
@@ -14,6 +15,7 @@ import InputNormal from '@/components/input/InputNormal.vue'
 import ButtonNormal from '@/components/input/ButtonNormal.vue'
 import InputArray from '@/components/input/InputArray.vue'
 import ButtonArray from '@/components/input/ButtonArray.vue'
+import htmlNormal from '@/components/input/HtmlNormal.vue'
 
 export default {
   name: 'InputView',
@@ -21,7 +23,8 @@ export default {
     InputNormal,
     ButtonNormal,
     InputArray,
-    ButtonArray
+    ButtonArray,
+    htmlNormal
   }
 }
 </script>
