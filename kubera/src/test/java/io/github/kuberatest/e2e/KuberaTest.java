@@ -64,4 +64,17 @@ public class KuberaTest {
         ExcelReader excelReader = new ExcelReader(KuberaTest.class.getResourceAsStream("/excel/Excelテスト.xlsx"));
         return excelReader.readExcelFileToArgumentsStream();
     }
+
+    @ParameterizedTest(name = "{index}: {0}")
+    @MethodSource("excelTemplateTestcaseProvider")
+    public void Excelファイルテンプレートを読み込んでテストを実行できる(String testCaseName, ArrayNode testCase) {
+        for (JsonNode jsonNode: testCase) {
+            kubera.action(jsonNode.toPrettyString());
+        }
+    }
+
+    static Stream<Arguments> excelTemplateTestcaseProvider() {
+        ExcelReader excelReader = new ExcelReader(KuberaTest.class.getResourceAsStream("/excel/kubera-template.xlsx"));
+        return excelReader.readExcelFileToArgumentsStream();
+    }
 }

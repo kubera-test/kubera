@@ -10,7 +10,6 @@ import org.openqa.selenium.WebElement;
 
 public abstract class TestcaseElementWriterBase extends TestcaseActionWriterBase implements TestcaseElementWriter {
 
-    protected WebDriver webDriver;
     protected WebElement webElement;
     protected String[] attribute;
     protected Integer arrayCount;

@@ -6,7 +6,6 @@ import org.apache.poi.ss.usermodel.*;
 
 public abstract class StyleWriterBase {
 
-    @Deprecated
     protected int writeElementHeader(Workbook workbookArg, Sheet sheetArg, int activeRowArg, String headerLabel) {
         Row row = sheetArg.createRow(activeRowArg);
         CellStyle cellStyle = getHeaderCellStyle(workbookArg);
@@ -19,14 +18,7 @@ public abstract class StyleWriterBase {
     }
 
     protected int writeElementHeader(Workbook workbookArg, Sheet sheetArg, int activeRowArg, ExcelKey headerLabel) {
-        Row row = sheetArg.createRow(activeRowArg);
-        CellStyle cellStyle = getHeaderCellStyle(workbookArg);
-        row.setRowStyle(cellStyle);
-
-        row.createCell(1, CellType.STRING).setCellValue(ExcelForms.getMessage(headerLabel));
-        row.getCell(1).setCellStyle(cellStyle);
-
-        return activeRowArg + 1;
+        return writeElementHeader(workbookArg, sheetArg, activeRowArg, ExcelForms.getMessage(headerLabel));
     }
 
     private CellStyle getHeaderCellStyle(Workbook workbookArg) {

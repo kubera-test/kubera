@@ -11,6 +11,7 @@ public enum ActionType {
 
     // ----------------------------------------------- Page
     GOTO_URL("gotoURL", GoToURL.class),
+    SWITCH_TO("switchTo", SwitchTo.class),
 
     // ---------------------------------------------- Input
     INPUT_TEXTBOX("inputTextbox", InputTextbox.class),

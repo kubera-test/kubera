@@ -1,7 +1,9 @@
 package io.github.kuberatest.actiongenerate;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.BeforeAction;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.NormalAction;
+import io.github.kuberatest.actiongenerate.writer.stylewriter.PageTitle;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseActionWriter;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseWriterFactory;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseElementWriter;
@@ -18,6 +20,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class ActionGenerator {
@@ -26,6 +29,7 @@ public class ActionGenerator {
     private Workbook workbook;
     private int sheetCount;
     private int activeRow;
+    private String targetWindowHandle;
 
     public void execute(String url) {
         init();
@@ -42,12 +46,43 @@ public class ActionGenerator {
         openPage(url);
         displayUsage();
         workbook = makeExcelFile();
-        String inputString = waitKeyPress();
+        String inputString = waitInputSheetName();
         while (!isExit(inputString)) {
+            if (isMultiplePages()) {
+                selectPage();
+            } else {
+                targetWindowHandle = webDriver.getWindowHandle();
+            }
             capture(workbook, inputString);
-            inputString = waitKeyPress();
+            inputString = waitInputSheetName();
         }
         workbook.write(new FileOutputStream("test.xlsx"));
+    }
+
+    private void selectPage() throws IOException {
+        stdout("ウィンドウまたはタブが複数開かれています。取り込み対象のページ番号を入力してください。");
+
+        AtomicInteger pageCount = new AtomicInteger(1);
+        AtomicInteger defaultPage = new AtomicInteger(0);
+        List<String> windowHandles = new ArrayList<>(webDriver.getWindowHandles());
+        windowHandles.forEach(windowHandle -> {
+            webDriver.switchTo().window(windowHandle);
+            if (windowHandle.equals(targetWindowHandle)) {
+                defaultPage.set(pageCount.get());
+                stdout(String.format("[%d]:%s", pageCount.get(), webDriver.getTitle()));
+            } else {
+                stdout(String.format(" %d :%s", pageCount.get(), webDriver.getTitle()));
+            }
+            pageCount.getAndIncrement();
+        });
+
+        int targetPage = waitInputPageCount(defaultPage.get(), windowHandles.size());
+        targetWindowHandle = windowHandles.get(targetPage - 1);
+        webDriver.switchTo().window(targetWindowHandle);
+    }
+
+    private boolean isMultiplePages() {
+        return webDriver.getWindowHandles().size() > 1;
     }
 
     public void capture(Workbook workbook, String sheetName) {
@@ -65,12 +100,15 @@ public class ActionGenerator {
 
         for (BeforeActionType type: BeforeActionType.values()) {
             TestcaseActionWriter actionWriter = TestcaseWriterFactory.getInstance().createBeforeActionWriter(type);
+            actionWriter.setSeleniumInfo(webDriver);
             actionWriter.setExcelInfo(workbook, sheet, activeRow);
             activeRow = actionWriter.writeExcel();
         }
     }
 
     public void writeExcelFromElement(Sheet sheet) {
+        writePageTitle(sheet);
+
         for (ElementType type: ElementType.values()) {
             captureElement(sheet, type);
         }
@@ -82,9 +120,16 @@ public class ActionGenerator {
 
         for (NormalActionType type: NormalActionType.values()) {
             TestcaseActionWriter actionWriter = TestcaseWriterFactory.getInstance().createActionWriter(type);
+            actionWriter.setSeleniumInfo(webDriver);
             actionWriter.setExcelInfo(workbook, sheet, activeRow);
             activeRow = actionWriter.writeExcel();
         }
+    }
+
+    private void writePageTitle(Sheet sheet) {
+        PageTitle pageTitle = new PageTitle();
+        pageTitle.setWindowTitle(webDriver.getTitle());
+        activeRow = pageTitle.writeElementHeader(workbook, sheet, activeRow);
     }
 
     public void captureElement(Sheet sheet, ElementType type) {
@@ -137,13 +182,14 @@ public class ActionGenerator {
 
     public void openPage(String url) {
         webDriver.get(url);
+        targetWindowHandle = webDriver.getWindowHandle();
     }
 
     private boolean isExit(String input) {
         return input.equals("exit");
     }
 
-    public String waitKeyPress() throws IOException {
+    public String waitInputSheetName() throws IOException {
 //        Scanner scanner = new Scanner(System.in);
         stdout(String.format("シート名を入力してEnterを押してください[%d]:", sheetCount));
 //        return scanner.nextLine();
@@ -154,6 +200,28 @@ public class ActionGenerator {
         }
         sheetCount++;
         return sheetName;
+    }
+
+    private int waitInputPageCount(int defaultPage, int maxSize) throws IOException {
+        BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+        String pageCount = stdin.readLine();
+        while(true) {
+            if (defaultPage != 0 && pageCount.trim().length() == 0) {
+                return defaultPage;
+            }
+
+            if (!pageCount.matches("[0-9]+")) {
+                stdout("数字を入力してください。");
+
+            } else if (Integer.parseInt(pageCount) > maxSize) {
+                stdout(String.format("1～%dの数字を入力してください。", maxSize));
+
+            } else {
+                break;
+            }
+            pageCount = stdin.readLine();
+        }
+        return Integer.parseInt(pageCount);
     }
 
     private void displayUsage() {
@@ -168,6 +236,7 @@ public class ActionGenerator {
         System.out.println(message);
     }
     public void init() {
+        WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         sheetCount = 1;
     }

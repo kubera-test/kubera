@@ -5,12 +5,19 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.openqa.selenium.WebDriver;
 
 public abstract class TestcaseActionWriterBase implements TestcaseActionWriter {
 
+    protected WebDriver webDriver;
     protected Workbook workbook;
     protected Sheet sheet;
     protected int activeRow;
+
+    @Override
+    public void setSeleniumInfo(WebDriver webDriver) {
+        this.webDriver = webDriver;
+    }
 
     @Override
     public void setExcelInfo(Workbook workbook, Sheet sheet, int activeRow) {

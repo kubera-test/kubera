@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class ClickLinkTest extends ActionTest {
 
     @Test
-    public void ボタンをクリックできること() {
+    public void リンクをクリックできること() {
         kubera.action("{ \"actionName\": \"gotoURL\", "
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 

@@ -2,12 +2,21 @@ package io.github.kuberatest.util;
 
 public class TestcaseProperties {
     private String webDriverFilePath = KuberaProperties.getProperty("webdriver.filepath");
+    private String downloadDirectory = KuberaProperties.getProperty("download.directory");
     public String getWebDriverFilePath() {
         return webDriverFilePath;
     }
 
     public void setWebDriverFilePath(String value) {
         webDriverFilePath = value;
+    }
+
+    public String getDownloadDirectory() {
+        return downloadDirectory;
+    }
+
+    public void setDownloadDirectory(String downloadDirectory) {
+        this.downloadDirectory = downloadDirectory;
     }
 
     public boolean isChrome() {

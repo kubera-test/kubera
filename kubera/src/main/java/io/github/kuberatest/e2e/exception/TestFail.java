@@ -15,8 +15,8 @@ public class TestFail {
         Assertions.fail(message);
     }
 
-    public static void fail(MessageKey messageKey) {
-        fail(Messages.getMessage(messageKey));
+    public static void fail(MessageKey messageKey, Object... args) {
+        fail(Messages.getMessage(messageKey, args));
     }
 
     public static String generateFailMessage(String message, String expected, String actual) {
