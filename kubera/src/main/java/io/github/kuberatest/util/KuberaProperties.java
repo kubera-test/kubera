@@ -14,7 +14,7 @@ public class KuberaProperties {
         try {
             properties.load(
                     new URLClassLoader(
-                            new URL[]{KuberaProperties.class.getResource("")})
+                            new URL[]{KuberaProperties.class.getResource("/")})
                             .getResourceAsStream("kubera.properties"));
         } catch (IOException e) {
             throw new RuntimeException(e);

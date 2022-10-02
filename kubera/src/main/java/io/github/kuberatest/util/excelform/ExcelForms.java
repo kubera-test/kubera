@@ -16,7 +16,7 @@ public class ExcelForms {
                         "ExcelForm",
                         Locale.getDefault(),
                         new URLClassLoader(
-                                new URL[]{ExcelForms.class.getResource("")}));
+                                new URL[]{ExcelForms.class.getResource("/")}));
     }
 
     public static String getMessage(ExcelKey key, Object... args) {

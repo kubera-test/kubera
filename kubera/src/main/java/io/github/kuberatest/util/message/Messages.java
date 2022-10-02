@@ -16,7 +16,7 @@ public class Messages {
                         "Message",
                         Locale.getDefault(),
                         new URLClassLoader(
-                                new URL[]{Messages.class.getResource("")}));
+                                new URL[]{Messages.class.getResource("/")}));
     }
 
     public static String getMessage(MessageKey key, Object... args) {
