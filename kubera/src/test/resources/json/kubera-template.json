@@ -1,0 +1,59 @@
+[
+  {
+    "TestCaseName": "おすすめプランの予約ボタンを押すと、おすすめプランの予約ページが別タブで表示されること",
+    "TestCases": [
+      {"actionName" :  "gotoURL", "actionJson": {"description" :  "ページを開く", "url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
+      {"actionName" :  "clickLink", "actionJson": {"description" :  "お得な特典付きプランの予約ボタンをクリックする", "locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
+      {"actionName" :  "switchTo", "actionJson": {"description" :  "タブを切り替える", "windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "assertText", "actionJson": {"description" :  "[プラン名]を確認する", "locator" :  "id", "searchExpression": "plan-name", "checkValue": "お得な特典付きプラン" }}
+    ]
+  }
+  ,{
+    "TestCaseName": "宿泊予約画面の初期表示でデフォルト設定される値が正しいこと",
+    "TestCases": [
+      {"actionName" :  "gotoURL", "actionJson": {"description" :  "ページを開く", "url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
+      {"actionName" :  "clickLink", "actionJson": {"description" :  "お得な特典付きプランの予約ボタンをクリックする", "locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
+      {"actionName" :  "switchTo", "actionJson": {"description" :  "タブを切り替える", "windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "assertNumber", "actionJson": {"description" :  "宿泊数の値を確認する", "locator" :  "name", "searchExpression": "term", "checkValue": "1" }},
+      {"actionName" :  "assertNumber", "actionJson": {"description" :  "人数の値を確認する", "locator" :  "name", "searchExpression": "head-count", "checkValue": "1" }}
+    ]
+  }
+  ,{
+    "TestCaseName": "宿泊予約画面で何も入力せずに確認ボタンを押すと必須エラーが発生すること",
+    "TestCases": [
+      {"actionName" :  "gotoURL", "actionJson": {"url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
+      {"actionName" :  "clickLink", "actionJson": {"locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
+      {"actionName" :  "switchTo", "actionJson": {"windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "clickButton", "actionJson": {"locator" :  "id", "searchExpression": "submit-button" }},
+      {"actionName" :  "assertText", "actionJson": {"locator" :  "css_selector", "searchExpression": "input[name=\"username\"] ~ div", "checkValue": "このフィールドを入力してください。" }}
+    ]
+  }
+  ,{
+    "TestCaseName": "宿泊予約画面でエラーの内容に入力したのちに確認ボタンを押すと確認画面に遷移すること",
+    "TestCases": [
+      {"actionName" :  "gotoURL", "actionJson": {"url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
+      {"actionName" :  "clickLink", "actionJson": {"locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
+      {"actionName" :  "switchTo", "actionJson": {"windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "inputTextbox", "actionJson": {"locator" :  "name", "searchExpression": "username", "inputString": "Hotel Taro" }},
+      {"actionName" :  "inputSelect", "actionJson": {"locator" :  "name", "searchExpression": "contact", "selectValue": "no" }},
+      {"actionName" :  "clickButton", "actionJson": {"locator" :  "id", "searchExpression": "submit-button" }},
+      {"actionName" :  "assertText", "actionJson": {"locator" :  "css_selector", "searchExpression": "h2.my-3", "checkValue": "宿泊予約確認" }}
+    ]
+  }
+  ,{
+    "TestCaseName": "宿泊予約確認画面の初期表示で前画面の入力値が表示されていること",
+    "TestCases": [
+      {"actionName" :  "gotoURL", "actionJson": {"url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
+      {"actionName" :  "clickLink", "actionJson": {"locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
+      {"actionName" :  "switchTo", "actionJson": {"windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "inputTextbox", "actionJson": {"locator" :  "name", "searchExpression": "username", "inputString": "Hotel Taro" }},
+      {"actionName" :  "inputSelect", "actionJson": {"locator" :  "name", "searchExpression": "contact", "selectValue": "no" }},
+      {"actionName" :  "clickButton", "actionJson": {"locator" :  "id", "searchExpression": "submit-button" }},
+      {"actionName" :  "assertText", "actionJson": {"locator" :  "id", "searchExpression": "head-count", "checkValue": "1名様" }},
+      {"actionName" :  "assertText", "actionJson": {"locator" :  "id", "searchExpression": "plans", "checkValue": "なし" }},
+      {"actionName" :  "assertText", "actionJson": {"locator" :  "id", "searchExpression": "username", "checkValue": "Hotel Taro様" }},
+      {"actionName" :  "assertText", "actionJson": {"locator" :  "id", "searchExpression": "contact", "checkValue": "希望しない" }},
+      {"actionName" :  "assertText", "actionJson": {"locator" :  "id", "searchExpression": "comment", "checkValue": "なし" }}
+    ]
+  }
+]
