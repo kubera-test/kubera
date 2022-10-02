@@ -16,3 +16,18 @@
 ## 必要な環境
 - Java 11 以上
 - Maven 3.6.0 以上
+
+## 使い方など
+[Wiki](https://github.com/kubera-test/kubera/wiki)にて記載しています。(こちらも作成中です)
+
+## スケルトン
+実際にテストプロジェクトを作成する際のスケルトンを[こちらのリポジトリ](https://github.com/kubera-test/kubera-skeleton)にて公開しています。
+
+## 利用しているツール類(Special Thanks)
+- Selenium(https://www.selenium.dev/)
+- Selenide(https://selenide.org/)
+- Apache POI(https://poi.apache.org/)
+- テスト自動化の学習用の練習サイト(https://hotel.testplanisphere.dev/ja/, https://github.com/testplanisphere/hotel-example-site)
+
+## ライセンス
+KuberaはMITライセンスで公開されています。
