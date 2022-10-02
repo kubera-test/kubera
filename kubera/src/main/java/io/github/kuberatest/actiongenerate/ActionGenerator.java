@@ -253,4 +253,9 @@ public class ActionGenerator {
         activeRow = 0;
         return workbook.createSheet(sheetName);
     }
+
+    public static void main(String[] args) {
+        ActionGenerator actionGenerator = new ActionGenerator();
+        actionGenerator.execute(args[0]);
+    }
 }
