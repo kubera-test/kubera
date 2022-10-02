@@ -53,6 +53,18 @@ public class KuberaTest {
     }
 
     @ParameterizedTest(name = "{index}: {0}")
+    @MethodSource("jsonTemplateTestcaseProvider")
+    public void JSONテンプレートを読み込んでテストを実行できる(String testCaseName, ArrayNode testCase) {
+        for (JsonNode jsonNode: testCase) {
+            kubera.action(jsonNode.toPrettyString());
+        }
+    }
+
+    static Stream<Arguments> jsonTemplateTestcaseProvider() {
+        return JsonReader.readJsonArrayFileToArgumentsStream(KuberaTest.class.getResourceAsStream("/json/kubera-template.json"));
+    }
+
+    @ParameterizedTest(name = "{index}: {0}")
     @MethodSource("excelTestcaseProvider")
     public void Excelファイルを読み込んでテストを実行できる(String testCaseName, ArrayNode testCase) {
         for (JsonNode jsonNode: testCase) {
