@@ -1,16 +1,16 @@
 package io.github.kuberatest.e2e.action.screenshot;
 
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.fullscreenshot.FullSizePhotographer;
 import io.github.kuberatest.e2e.action.Action;
 import io.github.kuberatest.e2e.action.TestCaseAction;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import org.openqa.selenium.OutputType;
 
-import javax.imageio.ImageIO;
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class TakeScreenshot extends TestCaseAction implements Action {
 
@@ -35,13 +35,12 @@ public class TakeScreenshot extends TestCaseAction implements Action {
 
     @Override
     public void execute() {
-        Screenshot screenshot = new AShot()
-                .shootingStrategy(ShootingStrategies.viewportPasting(200))
-                .takeScreenshot(WebDriverRunner.getWebDriver());
+        FullSizePhotographer photographer = new FullSizePhotographer();
+        Path imagePath = Paths.get(imageFileName);
         try {
-            System.out.println(imageFileName);
-            ImageIO.write(screenshot.getImage(), "PNG", new File(imageFileName));
+            Files.write(imagePath, photographer.takeScreenshot(WebDriverRunner.driver(), OutputType.BYTES).get());
         } catch (IOException e) {
+            // TODO: 例外処理
             throw new RuntimeException(e);
         }
     }
