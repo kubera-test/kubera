@@ -18,7 +18,7 @@ public class TakeScreenshotTest {
                 + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
 
         kubera.action("{ \"actionName\": \"takeScreenshot\", "
-                + "\"actionJson\": { \"imageFileName\": \"C:\\\\tmp\\\\a.png\" } }");
+                + "\"actionJson\": { \"imageFileName\": \"a.png\" } }");
 
     }
 
