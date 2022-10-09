@@ -30,7 +30,25 @@ public class ActionGenerator {
     private int sheetCount;
     private int activeRow;
     private String targetWindowHandle;
+    private String testcaseExcelFilePath = "test.xlsx";
 
+    /**
+     * 画面操作候補一覧ファイルの出力先を設定します。
+     * 相対パスを指定した場合は、このプロジェクトのルートディレクトリ（Maven実行時ディレクトリ）を基準にファイルが作成されます。
+     * フルパスを指定した場合、そのパスにファイルが作成されます。
+     *
+     * @param testcaseExcelFilePath 画面操作候補一覧ファイルの出力先をフルパス、または相対パスで設定します。
+     */
+    public void setTestcaseExcelFilePath(String testcaseExcelFilePath) {
+        this.testcaseExcelFilePath = testcaseExcelFilePath;
+    }
+
+    /**
+     * 画面操作候補の一覧を作成します。
+     * 出力するファイルを指定する場合は、{@link #setTestcaseExcelFilePath(String)}を使用してください。
+     * 指定しない場合は、プロジェクトディレクトリの直下に"test.xlsx"というファイルで作成されます。
+     * @param url テスト対象の入り口となるURLを指定します。
+     */
     public void execute(String url) {
         init();
         try {
@@ -56,7 +74,7 @@ public class ActionGenerator {
             capture(workbook, inputString);
             inputString = waitInputSheetName();
         }
-        workbook.write(new FileOutputStream("test.xlsx"));
+        workbook.write(new FileOutputStream(testcaseExcelFilePath));
     }
 
     private void selectPage() throws IOException {
@@ -256,6 +274,9 @@ public class ActionGenerator {
 
     public static void main(String[] args) {
         ActionGenerator actionGenerator = new ActionGenerator();
+//        actionGenerator.setTestcaseExcelFilePath("testcase.xlsx");
+//        actionGenerator.setTestcaseExcelFilePath("C:\\tmp\\testcase.xlsx");
+        actionGenerator.setTestcaseExcelFilePath(args[1]);
         actionGenerator.execute(args[0]);
     }
 }
