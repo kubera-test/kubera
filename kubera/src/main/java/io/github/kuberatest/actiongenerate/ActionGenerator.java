@@ -7,6 +7,7 @@ import io.github.kuberatest.actiongenerate.writer.stylewriter.PageTitle;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseActionWriter;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseWriterFactory;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseElementWriter;
+import io.github.kuberatest.util.TestcaseProperties;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -14,6 +15,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -50,7 +53,7 @@ public class ActionGenerator {
      * @param url テスト対象の入り口となるURLを指定します。
      */
     public void execute(String url) {
-        init();
+        initialize();
         try {
             actionGenerate(url);
         } catch (IOException e) {
@@ -253,10 +256,31 @@ public class ActionGenerator {
     private void stdout(String message) {
         System.out.println(message);
     }
-    public void init() {
+    public void initialize() {
+        TestcaseProperties properties = new TestcaseProperties();
+        if (properties.isChrome()) {
+            initializeChrome();
+        } else if (properties.isFirefox()) {
+            initializeFirefox();
+        } else if (properties.isEdge()) {
+            initializeEdge();
+        }
+        sheetCount = 1;
+    }
+
+    private void initializeChrome() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
-        sheetCount = 1;
+    }
+
+    private void initializeFirefox() {
+        WebDriverManager.firefoxdriver().setup();
+        webDriver = new FirefoxDriver();
+    }
+
+    private void initializeEdge() {
+        WebDriverManager.edgedriver().setup();
+        webDriver = new EdgeDriver();
     }
 
     public void quitSelenium() {
