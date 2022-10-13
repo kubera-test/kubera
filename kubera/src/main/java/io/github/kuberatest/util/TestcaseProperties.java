@@ -34,4 +34,7 @@ public class TestcaseProperties {
     public boolean isHeadless() {
         return KuberaProperties.getProperty("webdriver.headless").equalsIgnoreCase("true");
     }
+    public boolean isAutoUpdate() {
+        return KuberaProperties.getProperty("webdriver.update.auto").equalsIgnoreCase("true");
+    }
 }

@@ -1,22 +1,20 @@
 package io.github.kuberatest.actiongenerate;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.BeforeAction;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.NormalAction;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.PageTitle;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseActionWriter;
-import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseWriterFactory;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseElementWriter;
+import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseWriterFactory;
 import io.github.kuberatest.util.TestcaseProperties;
+import io.github.kuberatest.util.webdriver.WebDriverHelperFactory;
+import io.github.kuberatest.util.webdriver.WebDriverInitializer;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -256,31 +254,12 @@ public class ActionGenerator {
     private void stdout(String message) {
         System.out.println(message);
     }
+
     public void initialize() {
         TestcaseProperties properties = new TestcaseProperties();
-        if (properties.isChrome()) {
-            initializeChrome();
-        } else if (properties.isFirefox()) {
-            initializeFirefox();
-        } else if (properties.isEdge()) {
-            initializeEdge();
-        }
+        WebDriverInitializer initializer = WebDriverHelperFactory.getInstance().createWebDriverInitializer(properties);
+        webDriver = initializer.initializeSelenium(properties);
         sheetCount = 1;
-    }
-
-    private void initializeChrome() {
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
-    }
-
-    private void initializeFirefox() {
-        WebDriverManager.firefoxdriver().setup();
-        webDriver = new FirefoxDriver();
-    }
-
-    private void initializeEdge() {
-        WebDriverManager.edgedriver().setup();
-        webDriver = new EdgeDriver();
     }
 
     public void quitSelenium() {
