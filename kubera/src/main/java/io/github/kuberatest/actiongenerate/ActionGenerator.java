@@ -1,19 +1,20 @@
 package io.github.kuberatest.actiongenerate;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.BeforeAction;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.NormalAction;
 import io.github.kuberatest.actiongenerate.writer.stylewriter.PageTitle;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseActionWriter;
-import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseWriterFactory;
 import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseElementWriter;
+import io.github.kuberatest.actiongenerate.writer.testcasewriter.TestcaseWriterFactory;
+import io.github.kuberatest.util.TestcaseProperties;
+import io.github.kuberatest.util.webdriver.WebDriverHelperFactory;
+import io.github.kuberatest.util.webdriver.WebDriverInitializer;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -30,9 +31,27 @@ public class ActionGenerator {
     private int sheetCount;
     private int activeRow;
     private String targetWindowHandle;
+    private String testcaseExcelFilePath = "test.xlsx";
 
+    /**
+     * 画面操作候補一覧ファイルの出力先を設定します。
+     * 相対パスを指定した場合は、このプロジェクトのルートディレクトリ（Maven実行時ディレクトリ）を基準にファイルが作成されます。
+     * フルパスを指定した場合、そのパスにファイルが作成されます。
+     *
+     * @param testcaseExcelFilePath 画面操作候補一覧ファイルの出力先をフルパス、または相対パスで設定します。
+     */
+    public void setTestcaseExcelFilePath(String testcaseExcelFilePath) {
+        this.testcaseExcelFilePath = testcaseExcelFilePath;
+    }
+
+    /**
+     * 画面操作候補の一覧を作成します。
+     * 出力するファイルを指定する場合は、{@link #setTestcaseExcelFilePath(String)}を使用してください。
+     * 指定しない場合は、プロジェクトディレクトリの直下に"test.xlsx"というファイルで作成されます。
+     * @param url テスト対象の入り口となるURLを指定します。
+     */
     public void execute(String url) {
-        init();
+        initialize();
         try {
             actionGenerate(url);
         } catch (IOException e) {
@@ -56,7 +75,7 @@ public class ActionGenerator {
             capture(workbook, inputString);
             inputString = waitInputSheetName();
         }
-        workbook.write(new FileOutputStream("test.xlsx"));
+        workbook.write(new FileOutputStream(testcaseExcelFilePath));
     }
 
     private void selectPage() throws IOException {
@@ -235,9 +254,11 @@ public class ActionGenerator {
     private void stdout(String message) {
         System.out.println(message);
     }
-    public void init() {
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
+
+    public void initialize() {
+        TestcaseProperties properties = new TestcaseProperties();
+        WebDriverInitializer initializer = WebDriverHelperFactory.getInstance().createWebDriverInitializer(properties);
+        webDriver = initializer.initializeSelenium(properties);
         sheetCount = 1;
     }
 
@@ -256,6 +277,9 @@ public class ActionGenerator {
 
     public static void main(String[] args) {
         ActionGenerator actionGenerator = new ActionGenerator();
+//        actionGenerator.setTestcaseExcelFilePath("testcase.xlsx");
+//        actionGenerator.setTestcaseExcelFilePath("C:\\tmp\\testcase.xlsx");
+        actionGenerator.setTestcaseExcelFilePath(args[1]);
         actionGenerator.execute(args[0]);
     }
 }
