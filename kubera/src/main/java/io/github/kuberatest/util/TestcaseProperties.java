@@ -30,6 +30,9 @@ public class TestcaseProperties {
     public boolean isEdge() {
         return KuberaProperties.getProperty("browser").equalsIgnoreCase("edge");
     }
+    public boolean isSafari() {
+        return KuberaProperties.getProperty("browser").equalsIgnoreCase("safari");
+    }
 
     public boolean isHeadless() {
         return KuberaProperties.getProperty("webdriver.headless").equalsIgnoreCase("true");
