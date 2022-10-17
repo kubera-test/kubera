@@ -4,6 +4,7 @@ import io.github.kuberatest.util.TestcaseProperties;
 import io.github.kuberatest.util.webdriver.browser.ChromeDriverInitializer;
 import io.github.kuberatest.util.webdriver.browser.EdgeDriverInitializer;
 import io.github.kuberatest.util.webdriver.browser.FirefoxDriverInitializer;
+import io.github.kuberatest.util.webdriver.browser.SafariDriverInitializer;
 
 public class WebDriverHelperFactory {
     private static WebDriverHelperFactory instance;
@@ -22,6 +23,8 @@ public class WebDriverHelperFactory {
             return new FirefoxDriverInitializer();
         } else if (testcaseProperties .isEdge()) {
             return new EdgeDriverInitializer();
+        } else if (testcaseProperties.isSafari()) {
+            return new SafariDriverInitializer();
         } else {
             // TODO: throw exception
             return null;

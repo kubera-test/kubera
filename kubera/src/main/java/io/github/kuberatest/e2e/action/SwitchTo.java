@@ -6,8 +6,6 @@ import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
 import io.github.kuberatest.util.message.MessageKey;
 import org.openqa.selenium.WebDriver;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class SwitchTo extends TestCaseAction implements Action {
 
     private String windowTitle;
@@ -24,15 +22,28 @@ public class SwitchTo extends TestCaseAction implements Action {
     public void execute() {
         WebDriver webDriver = WebDriverRunner.getWebDriver();
 
-        AtomicBoolean isFound = new AtomicBoolean(false);
-        webDriver.getWindowHandles().forEach(windowHandle -> {
-            webDriver.switchTo().window(windowHandle);
-            if (webDriver.getTitle().equals(windowTitle)) {
-                isFound.set(true);
+        boolean isFound = false;
+        int searchCount = 0;
+        // タブのスイッチを安定させるために、Selenideのデフォルト待機の４秒と同じだけ１秒間隔で繰り返す
+        while(!isFound && searchCount <= 4) {
+            for (String windowHandle : webDriver.getWindowHandles()) {
+                webDriver.switchTo().window(windowHandle);
+                if (webDriver.getTitle().equals(windowTitle)) {
+                    isFound = true;
+                    break;
+                }
             }
-        });
+            if (!isFound) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            searchCount++;
+        }
 
-        if (!isFound.get()) {
+        if (!isFound) {
             TestFail.fail(MessageKey.FAIL_NO_SUCH_WINDOW_TITLE, windowTitle);
         }
     }

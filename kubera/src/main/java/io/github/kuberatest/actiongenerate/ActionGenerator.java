@@ -51,6 +51,7 @@ public class ActionGenerator {
      * @param url テスト対象の入り口となるURLを指定します。
      */
     public void execute(String url) {
+        validate();
         initialize();
         try {
             actionGenerate(url);
@@ -61,6 +62,12 @@ public class ActionGenerator {
         }
     }
 
+    private void validate() {
+        TestcaseProperties properties = new TestcaseProperties();
+        if (properties.isSafari()) {
+            throw new RuntimeException("アクション生成ツールで、Safariは使用できません。");
+        }
+    }
     public void actionGenerate(String url) throws IOException {
         openPage(url);
         displayUsage();
