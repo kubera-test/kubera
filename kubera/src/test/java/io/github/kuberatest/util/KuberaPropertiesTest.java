@@ -6,6 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class KuberaPropertiesTest {
     @Test
     public void getWebdriverFileName() {
-        assertEquals("webdriver\\chromedriver.exe", KuberaProperties.getProperty("webdriver.filepath"));
+        assertEquals("kubera\\webdriver\\old_version\\geckodriver.exe", KuberaProperties.getProperty("webdriver.filepath"));
     }
 }

@@ -4,7 +4,7 @@
     "TestCases": [
       {"actionName" :  "gotoURL", "actionJson": {"description" :  "ページを開く", "url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
       {"actionName" :  "clickLink", "actionJson": {"description" :  "お得な特典付きプランの予約ボタンをクリックする", "locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
-      {"actionName" :  "switchTo", "actionJson": {"description" :  "タブを切り替える", "windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "switchTo", "actionJson": {"description" :  "タブを切り替える", "windowTitle" :  "宿泊予約 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
       {"actionName" :  "assertText", "actionJson": {"description" :  "[プラン名]を確認する", "locator" :  "id", "searchExpression": "plan-name", "checkValue": "お得な特典付きプラン" }}
     ]
   }
@@ -13,7 +13,7 @@
     "TestCases": [
       {"actionName" :  "gotoURL", "actionJson": {"description" :  "ページを開く", "url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
       {"actionName" :  "clickLink", "actionJson": {"description" :  "お得な特典付きプランの予約ボタンをクリックする", "locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
-      {"actionName" :  "switchTo", "actionJson": {"description" :  "タブを切り替える", "windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "switchTo", "actionJson": {"description" :  "タブを切り替える", "windowTitle" :  "宿泊予約 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
       {"actionName" :  "assertNumber", "actionJson": {"description" :  "宿泊数の値を確認する", "locator" :  "name", "searchExpression": "term", "checkValue": "1" }},
       {"actionName" :  "assertNumber", "actionJson": {"description" :  "人数の値を確認する", "locator" :  "name", "searchExpression": "head-count", "checkValue": "1" }}
     ]
@@ -23,7 +23,7 @@
     "TestCases": [
       {"actionName" :  "gotoURL", "actionJson": {"url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
       {"actionName" :  "clickLink", "actionJson": {"locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
-      {"actionName" :  "switchTo", "actionJson": {"windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "switchTo", "actionJson": {"windowTitle" :  "宿泊予約 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
       {"actionName" :  "clickButton", "actionJson": {"locator" :  "id", "searchExpression": "submit-button" }},
       {"actionName" :  "assertText", "actionJson": {"locator" :  "css_selector", "searchExpression": "input[name=\"username\"] ~ div", "checkValue": "このフィールドを入力してください。" }}
     ]
@@ -33,7 +33,7 @@
     "TestCases": [
       {"actionName" :  "gotoURL", "actionJson": {"url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
       {"actionName" :  "clickLink", "actionJson": {"locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
-      {"actionName" :  "switchTo", "actionJson": {"windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "switchTo", "actionJson": {"windowTitle" :  "宿泊予約 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
       {"actionName" :  "inputTextbox", "actionJson": {"locator" :  "name", "searchExpression": "username", "inputString": "Hotel Taro" }},
       {"actionName" :  "inputSelect", "actionJson": {"locator" :  "name", "searchExpression": "contact", "selectValue": "no" }},
       {"actionName" :  "clickButton", "actionJson": {"locator" :  "id", "searchExpression": "submit-button" }},
@@ -45,7 +45,7 @@
     "TestCases": [
       {"actionName" :  "gotoURL", "actionJson": {"url" :  "https://hotel.testplanisphere.dev/ja/plans.html" }},
       {"actionName" :  "clickLink", "actionJson": {"locator" :  "link_text", "searchExpression": "このプランで予約", "index": "1" }},
-      {"actionName" :  "switchTo", "actionJson": {"windowTitle" :  "宿泊プラン一覧 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
+      {"actionName" :  "switchTo", "actionJson": {"windowTitle" :  "宿泊予約 | HOTEL PLANISPHERE - テスト自動化練習サイト" }},
       {"actionName" :  "inputTextbox", "actionJson": {"locator" :  "name", "searchExpression": "username", "inputString": "Hotel Taro" }},
       {"actionName" :  "inputSelect", "actionJson": {"locator" :  "name", "searchExpression": "contact", "selectValue": "no" }},
       {"actionName" :  "clickButton", "actionJson": {"locator" :  "id", "searchExpression": "submit-button" }},

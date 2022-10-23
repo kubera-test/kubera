@@ -1,5 +1,6 @@
 package io.github.kuberatest.e2e;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.github.kuberatest.e2e.action.ActionExecuter;
 import io.github.kuberatest.util.TestcaseProperties;
@@ -14,6 +15,11 @@ public class Kubera {
         properties = new TestcaseProperties();
         WebDriverInitializer initializer = WebDriverHelperFactory.getInstance().createWebDriverInitializer(properties);
         initializer.initializeSelenide(properties);
+
+        if (properties.isSuppressSaveScreenshot()) {
+            Configuration.screenshots = false;
+            Configuration.savePageSource = false;
+        }
     }
 
     public void action(String actionJson) {
