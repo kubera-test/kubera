@@ -13,7 +13,7 @@ public class TestcasePropertiesTest {
 
     @Test
     public void getWebdriverFilePath() {
-        assertEquals("webdriver\\chromedriver.exe", testcaseProperties.getWebDriverFilePath());
+        assertEquals("kubera\\webdriver\\old_version\\geckodriver.exe", testcaseProperties.getWebDriverFilePath());
     }
 
     @Test

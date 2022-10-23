@@ -31,7 +31,7 @@ public class KuberaTest {
 
     @Test
     public void プロパティの値を取得できること() {
-        assertEquals("webdriver\\chromedriver.exe", Kubera.getProperties().getWebDriverFilePath());
+        assertEquals("kubera\\webdriver\\old_version\\geckodriver.exe", Kubera.getProperties().getWebDriverFilePath());
     }
 
     @Test

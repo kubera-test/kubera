@@ -1,21 +1,13 @@
 package io.github.kuberatest.e2e.action;
 
-import io.github.kuberatest.e2e.Kubera;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TakeScreenshotTest {
-    protected Kubera kubera;
-
-    @BeforeEach
-    public void setUp() {
-        kubera = new Kubera();
-    }
+public class TakeScreenshotTest extends ActionTest {
 
     @Test
     public void スクリーンショットを撮れること() {
         kubera.action("{ \"actionName\": \"gotoURL\", "
-                + "\"actionJson\": { \"url\": \"http://localhost:8080/input\" } }");
+                + "\"actionJson\": { \"url\": \"https://www.selenium.dev/ja/\" } }");
 
         kubera.action("{ \"actionName\": \"takeScreenshot\", "
                 + "\"actionJson\": { \"imageFileName\": \"a.png\" } }");
