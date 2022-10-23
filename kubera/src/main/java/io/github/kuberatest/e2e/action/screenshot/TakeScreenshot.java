@@ -2,6 +2,7 @@ package io.github.kuberatest.e2e.action.screenshot;
 
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.fullscreenshot.FullSizePhotographer;
+import io.github.kuberatest.e2e.Kubera;
 import io.github.kuberatest.e2e.action.Action;
 import io.github.kuberatest.e2e.action.TestCaseAction;
 import io.github.kuberatest.e2e.testcasereader.excel.ExcelActionData;
@@ -35,13 +36,18 @@ public class TakeScreenshot extends TestCaseAction implements Action {
 
     @Override
     public void execute() {
-        FullSizePhotographer photographer = new FullSizePhotographer();
-        Path imagePath = Paths.get(imageFileName);
-        try {
-            Files.write(imagePath, photographer.takeScreenshot(WebDriverRunner.driver(), OutputType.BYTES).get());
-        } catch (IOException e) {
-            // TODO: 例外処理
-            throw new RuntimeException(e);
+        if(Kubera.getProperties().isSuppressSaveScreenshot()) {
+            System.out.println("画像の保存をスキップしました");
+
+        } else {
+            FullSizePhotographer photographer = new FullSizePhotographer();
+            Path imagePath = Paths.get(imageFileName);
+            try {
+                Files.write(imagePath, photographer.takeScreenshot(WebDriverRunner.driver(), OutputType.BYTES).get());
+            } catch (IOException e) {
+                // TODO: 例外処理
+                throw new RuntimeException(e);
+            }
         }
     }
 

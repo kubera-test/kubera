@@ -35,9 +35,12 @@ public class TestcaseProperties {
     }
 
     public boolean isHeadless() {
-        return KuberaProperties.getProperty("webdriver.headless").equalsIgnoreCase("true");
+        return KuberaProperties.getProperty("webdriver.headless", "false").equalsIgnoreCase("true");
     }
     public boolean isAutoUpdate() {
-        return KuberaProperties.getProperty("webdriver.update.auto").equalsIgnoreCase("true");
+        return KuberaProperties.getProperty("webdriver.update.auto", "true").equalsIgnoreCase("true");
+    }
+    public boolean isSuppressSaveScreenshot() {
+        return KuberaProperties.getProperty("screenshot.suppress.save", "false").equalsIgnoreCase("true");
     }
 }
